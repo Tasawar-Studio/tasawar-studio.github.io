@@ -1,23 +1,23 @@
-<!-- ================= index.html (HOMEPAGE - SOURCE OF TRUTH) ================= -->
+<!-- ================= Digital-Experiences/index.html ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>TΛSΛWΛR Studio</title>
-  <meta name="description" content="TΛSΛWΛR Studio creates personalized digital experiences for birthdays, anniversaries, weddings and every moment worth remembering.">
+  <title>Digital Experiences | TΛSΛWΛR Studio</title>
+  <meta name="description" content="Discover personalized digital experiences by TΛSΛWΛR Studio. Birthday websites, anniversary surprises, wedding invitations and more.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://tasawar-studio.github.io/">
+  <link rel="canonical" href="https://tasawar-studio.github.io/Digital-Experiences/">
 
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <meta name="theme-color" content="#000000">
 
-  <meta property="og:title" content="TΛSΛWΛR Studio">
+  <meta property="og:title" content="Digital Experiences | TΛSΛWΛR Studio">
   <meta property="og:description" content="Create with Creativity.">
   <meta property="og:image" content="https://tasawar-studio.github.io/image.jpg">
-  <meta property="og:url" content="https://tasawar-studio.github.io/">
+  <meta property="og:url" content="https://tasawar-studio.github.io/Digital-Experiences/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TΛSΛWΛR Studio">
   <meta name="twitter:card" content="summary_large_image">
@@ -226,26 +226,20 @@
       .mobile-toggle { display:grid; }
     }
 
-    /* STUDIO HERO */
+    /* PAGE HERO */
 
-    .studio-hero {
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .page-hero {
+      padding:180px 0 80px;
+      text-align:center;
       position:relative;
       overflow:hidden;
-      padding:140px 0 80px;
-      text-align:center;
       background:
-        radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.09),transparent 45%),
-        radial-gradient(ellipse at 15% 80%,rgba(255,255,255,.045),transparent 40%),
+        radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.08),transparent 50%),
         var(--bg-primary);
+      border-bottom:1px solid var(--border-subtle);
     }
 
-    .studio-hero-content { max-width:900px; margin:auto; }
-
-    .studio-label {
+    .page-label {
       display:inline-flex;
       align-items:center;
       gap:10px;
@@ -257,11 +251,11 @@
       font-family:var(--font-display);
       font-size:10px;
       letter-spacing:2px;
-      margin-bottom:34px;
+      margin-bottom:28px;
       backdrop-filter:blur(12px);
     }
 
-    .studio-label .pulse {
+    .page-label .pulse {
       width:6px;
       height:6px;
       border-radius:50%;
@@ -274,19 +268,363 @@
       50% { opacity:.35; transform:scale(.75); }
     }
 
-    .studio-hero h1 {
+    .page-hero h1 {
       font-family:var(--font-display);
-      font-size:clamp(52px,11vw,130px);
-      line-height:.98;
+      font-size:clamp(40px,7vw,80px);
+      line-height:1.05;
       font-weight:900;
-      letter-spacing:-4px;
-      margin-bottom:0;
+      letter-spacing:-2.5px;
+      margin-bottom:22px;
     }
 
-    .studio-hero h1 .outline {
+    .page-hero h1 .outline {
       color:transparent;
       -webkit-text-stroke:1.5px var(--text-primary);
+    }
+
+    .page-hero p {
+      max-width:640px;
+      margin:0 auto;
+      color:var(--text-muted);
+      font-size:15px;
+      line-height:1.9;
+    }
+
+    /* SECTION */
+
+    .section {
+      padding:100px 0;
+      position:relative;
+      z-index:1;
+    }
+
+    .section.alt {
+      background:var(--bg-secondary);
+      border-top:1px solid var(--border-subtle);
+      border-bottom:1px solid var(--border-subtle);
+    }
+
+    .heading {
+      max-width:720px;
+      margin-bottom:56px;
+    }
+
+    .heading.center {
+      text-align:center;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .kicker {
+      display:inline-block;
+      padding:5px 14px;
+      border:1px solid var(--glass-border);
+      background:var(--accent-dim);
+      border-radius:50px;
+      font-family:var(--font-display);
+      font-size:9px;
+      letter-spacing:2px;
+      margin-bottom:18px;
+    }
+
+    .heading h2 {
+      font-family:var(--font-display);
+      font-size:clamp(28px,4vw,46px);
+      line-height:1.22;
+      margin-bottom:16px;
+      letter-spacing:-.5px;
+    }
+
+    .heading h2 span { opacity:.5; }
+
+    .heading p {
+      color:var(--text-muted);
+      font-size:14px;
+      max-width:620px;
+    }
+
+    .heading.center p { margin:auto; }
+
+    /* SERVICE GRID */
+
+    .services {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .service {
+      position:relative;
+      padding:34px 30px;
+      border:1px solid var(--border-subtle);
+      border-radius:18px;
+      background:var(--bg-card);
+      transition:transform .35s,border-color .35s,box-shadow .35s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .service:hover {
+      transform:translateY(-7px);
+      border-color:var(--text-muted);
+      box-shadow:0 20px 50px var(--shadow-color);
+    }
+
+    .service .num {
+      position:absolute;
+      top:22px;
+      right:26px;
+      font-family:var(--font-display);
+      font-size:11px;
+      color:var(--text-muted);
+      letter-spacing:2px;
+    }
+
+    .service-icon {
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      border:1px solid var(--glass-border);
+      background:var(--accent-dim);
+      font-size:22px;
+      margin-bottom:24px;
+    }
+
+    .service h3 {
+      font-family:var(--font-display);
+      font-size:17px;
+      line-height:1.4;
+      margin-bottom:12px;
+    }
+
+    .service p {
+      font-size:13px;
+      color:var(--text-muted);
+      margin-bottom:22px;
+    }
+
+    .service ul {
+      list-style:none;
+      margin-bottom:26px;
+      flex:1;
+    }
+
+    .service ul li {
+      font-size:12.5px;
+      color:var(--text-secondary);
+      padding:6px 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .service ul li i {
+      font-size:10px;
+      color:var(--text-primary);
+      opacity:.7;
+    }
+
+    .service-cta {
+      margin-top:auto;
+      padding-top:20px;
+      border-top:1px solid var(--border-subtle);
+    }
+
+    .service-cta a {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12.5px;
+      font-weight:600;
+      color:var(--text-primary);
+      transition:gap .3s;
+    }
+
+    .service-cta a:hover { gap:14px; }
+
+    /* PROCESS */
+
+    .steps {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .step {
+      padding:30px 24px;
+      border:1px solid var(--border-subtle);
+      border-radius:16px;
+      background:var(--bg-card);
+      transition:border-color .3s,transform .3s;
+    }
+
+    .step:hover { border-color:var(--text-muted); transform:translateY(-4px); }
+
+    .step-num {
+      font-family:var(--font-display);
+      font-size:32px;
+      font-weight:800;
+      color:var(--text-muted);
+      opacity:.6;
+      margin-bottom:22px;
+    }
+
+    .step h3 {
+      font-family:var(--font-display);
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .step p { color:var(--text-muted); font-size:12.5px; }
+
+    /* WHY US */
+
+    .values {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .value {
+      padding:28px 26px;
+      border:1px solid var(--border-subtle);
+      border-radius:14px;
+      background:var(--bg-card);
+      transition:border-color .3s,transform .3s;
+    }
+
+    .value:hover { border-color:var(--text-muted); transform:translateY(-4px); }
+
+    .value i {
+      font-size:20px;
+      margin-bottom:18px;
       display:block;
+    }
+
+    .value h3 {
+      font-family:var(--font-display);
+      font-size:13px;
+      margin-bottom:9px;
+      letter-spacing:.5px;
+    }
+
+    .value p { color:var(--text-muted); font-size:12.5px; }
+
+    /* PRICING */
+
+    .pricing {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .price-card {
+      padding:36px 30px;
+      border:1px solid var(--border-subtle);
+      border-radius:18px;
+      background:var(--bg-card);
+      display:flex;
+      flex-direction:column;
+      transition:transform .3s,border-color .3s;
+    }
+
+    .price-card:hover { transform:translateY(-5px); }
+
+    .price-card.featured {
+      border-color:var(--text-primary);
+      position:relative;
+    }
+
+    .price-card.featured::before {
+      content:"MOST POPULAR";
+      position:absolute;
+      top:-10px;
+      left:50%;
+      transform:translateX(-50%);
+      padding:4px 12px;
+      background:var(--text-primary);
+      color:var(--bg-primary);
+      font-family:var(--font-display);
+      font-size:9px;
+      letter-spacing:1.5px;
+      border-radius:50px;
+      white-space:nowrap;
+    }
+
+    .price-tag {
+      font-family:var(--font-display);
+      font-size:10px;
+      letter-spacing:2px;
+      color:var(--text-muted);
+      margin-bottom:14px;
+    }
+
+    .price-card h3 {
+      font-family:var(--font-display);
+      font-size:19px;
+      margin-bottom:12px;
+    }
+
+    .price-card > p {
+      color:var(--text-muted);
+      font-size:13px;
+      margin-bottom:24px;
+      line-height:1.8;
+    }
+
+    .price-card ul {
+      list-style:none;
+      margin-bottom:28px;
+      flex:1;
+    }
+
+    .price-card ul li {
+      font-size:12.5px;
+      color:var(--text-secondary);
+      padding:7px 0;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .price-card ul li i {
+      font-size:10px;
+      color:var(--text-primary);
+      opacity:.7;
+    }
+
+    .price-cta {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 26px;
+      border-radius:50px;
+      font-size:12.5px;
+      font-weight:600;
+      border:1px solid var(--glass-border);
+      background:transparent;
+      color:var(--text-primary);
+      transition:all .3s ease;
+      text-align:center;
+    }
+
+    .price-cta:hover {
+      background:var(--accent-dim);
+      transform:translateY(-2px);
+    }
+
+    .price-card.featured .price-cta {
+      background:var(--text-primary);
+      color:var(--bg-primary);
+      border-color:var(--text-primary);
+    }
+
+    .price-card.featured .price-cta:hover {
+      background:transparent;
+      color:var(--text-primary);
     }
 
     /* CORPORATE FOOTER */
@@ -406,16 +744,33 @@
 
     .footer-bottom-links a:hover { color:var(--text-primary); }
 
+    /* REVEAL */
+
+    .reveal {
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease,transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* RESPONSIVE */
+
     @media(max-width:1024px) {
+      .services, .values, .pricing { grid-template-columns:repeat(2,1fr); }
+      .steps { grid-template-columns:repeat(2,1fr); }
       .footer-top { grid-template-columns:1fr 1fr; gap:40px; }
     }
 
     @media(max-width:650px) {
-      .site-footer { padding:50px 0 0; }
+      .page-hero { padding:140px 0 60px; }
+      .section { padding:70px 0; }
+      .services, .values, .pricing, .steps { grid-template-columns:1fr; }
       .footer-top { grid-template-columns:1fr; gap:36px; padding-bottom:40px; }
       .footer-bottom { justify-content:center; text-align:center; }
-      .studio-hero { padding:120px 0 100px; }
-      .studio-hero h1 { letter-spacing:-2px; }
       .logo { font-size:18px; }
       .logo-img { width:40px; height:40px; }
     }
@@ -426,6 +781,7 @@
         animation:none!important;
         transition:none!important;
       }
+      .reveal { opacity:1; transform:none; }
     }
   </style>
 </head>
@@ -433,104 +789,259 @@
 <body>
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-<!-- ============================================================
-     HEADER TEMPLATE — YAHAN CHANGE KARO → SAB PAGES UPDATE
-     ============================================================ -->
-<template id="header-template">
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
-        <span>TΛSΛWΛR</span>
-      </a>
-      <nav class="nav" id="nav">
-        <a href="/">Home</a>
-        <a href="/digital-experiences/">Experiences</a>
-        <a href="/digital-experiences/#pricing">Pricing</a>
-        <a href="/digital-experiences/#contact">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-</template>
-
-<!-- ============================================================
-     FOOTER TEMPLATE — YAHAN CHANGE KARO → SAB PAGES UPDATE
-     ============================================================ -->
-<template id="footer-template">
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <a href="/" class="logo">
-            <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
-            <span>TΛSΛWΛR</span>
-          </a>
-          <p>We design and build personalized digital experiences for the moments that matter most. Birthdays, anniversaries, weddings and every occasion worth remembering.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/digital-experiences/">Experiences</a></li>
-            <li><a href="/digital-experiences/#pricing">Pricing</a></li>
-            <li><a href="/digital-experiences/#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/digital-experiences/">Birthday Websites</a></li>
-            <li><a href="/digital-experiences/">Anniversary Surprises</a></li>
-            <li><a href="/digital-experiences/">Wedding Invitations</a></li>
-            <li><a href="/digital-experiences/">Greeting Websites</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Get in Touch</h4>
-          <ul class="footer-contact-list">
-            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923047467957" target="_blank" rel="noopener">WhatsApp Chat</a></li>
-            <li><i class="fas fa-bullhorn"></i> <a href="https://whatsapp.com/channel/0029Vb9Dm5AIyPtKhdoLde0C" target="_blank" rel="noopener">WhatsApp Channel</a></li>
-            <li><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@tasawar_studio" target="_blank" rel="noopener">TikTok</a></li>
-            <li><i class="fab fa-x-twitter"></i> <a href="https://x.com/TasawarStudio" target="_blank" rel="noopener">X (Twitter)</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 TΛSΛWΛR Studio. All rights reserved.</span>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</template>
-
-<!-- Header inject yahan hoga -->
+<!-- Header yahan inject hoga (template is page mein nahi hai — /index.html se fetch) -->
 <div id="site-header"></div>
 
 <main>
-  <section class="studio-hero">
+
+  <section class="page-hero">
     <div class="container">
-      <div class="studio-hero-content">
-        <div class="studio-label">
-          <span class="pulse"></span> TΛSΛWΛR STUDIO
-        </div>
-        <h1>TΛSΛWΛR <span class="outline">Studio</span></h1>
+      <div class="page-label">
+        <span class="pulse"></span> DIGITAL EXPERIENCES
+      </div>
+      <h1>Moments Made<br><span class="outline">Digital</span></h1>
+      <p>Personalized websites and interactive experiences for the occasions that deserve more than an ordinary greeting.</p>
+    </div>
+  </section>
+
+  <section class="section" id="experiences">
+    <div class="container">
+      <div class="heading center reveal">
+        <span class="kicker">WHAT WE CREATE</span>
+        <h2>Experiences Made <span>Personal</span></h2>
+        <p>Six signature experience types, each designed around a moment worth remembering.</p>
+      </div>
+
+      <div class="services">
+        <article class="service reveal">
+          <span class="num">01</span>
+          <div class="service-icon"><i class="fas fa-cake-candles"></i></div>
+          <h3>Birthday Websites</h3>
+          <p>Turn a birthday wish into a personalized interactive surprise.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Animated cakes and candles</li>
+            <li><i class="fas fa-check"></i> Balloons and confetti</li>
+            <li><i class="fas fa-check"></i> Personalized messages</li>
+            <li><i class="fas fa-check"></i> Photo galleries</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Birthday Website <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <span class="num">02</span>
+          <div class="service-icon"><i class="fas fa-heart"></i></div>
+          <h3>Anniversary Surprises</h3>
+          <p>Celebrate your story with a personalized digital experience.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Romantic experiences</li>
+            <li><i class="fas fa-check"></i> Couple photo galleries</li>
+            <li><i class="fas fa-check"></i> Love stories and timelines</li>
+            <li><i class="fas fa-check"></i> Animated effects</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Anniversary Surprise <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <span class="num">03</span>
+          <div class="service-icon"><i class="fas fa-ring"></i></div>
+          <h3>Wedding Invitations</h3>
+          <p>Make your wedding invitation as special as the occasion.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Elegant digital invitations</li>
+            <li><i class="fas fa-check"></i> Bride and groom details</li>
+            <li><i class="fas fa-check"></i> Wedding countdown</li>
+            <li><i class="fas fa-check"></i> RSVP options</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Wedding Invitation <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <span class="num">04</span>
+          <div class="service-icon"><i class="fas fa-heart-circle-bolt"></i></div>
+          <h3>Valentine's Experiences</h3>
+          <p>Express your feelings through a creative digital surprise.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Romantic interactive pages</li>
+            <li><i class="fas fa-check"></i> Animated hearts</li>
+            <li><i class="fas fa-check"></i> Personal love messages</li>
+            <li><i class="fas fa-check"></i> Photo memories</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Valentine's Experience <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <span class="num">05</span>
+          <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Graduation Celebrations</h3>
+          <p>Give achievements a celebration worth remembering.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Graduate's name and photos</li>
+            <li><i class="fas fa-check"></i> Academic achievements</li>
+            <li><i class="fas fa-check"></i> Congratulatory messages</li>
+            <li><i class="fas fa-check"></i> Graduation animations</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Graduation Celebration <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="service reveal">
+          <span class="num">06</span>
+          <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3>Greeting Websites</h3>
+          <p>Transform ordinary greetings into memorable digital moments.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Congratulations websites</li>
+            <li><i class="fas fa-check"></i> Thank-you greetings</li>
+            <li><i class="fas fa-check"></i> Special occasion messages</li>
+            <li><i class="fas fa-check"></i> Interactive animations</li>
+          </ul>
+          <div class="service-cta">
+            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Greeting Website <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
+  <section class="section alt" id="how-it-works">
+    <div class="container">
+      <div class="heading center reveal">
+        <span class="kicker">OUR PROCESS</span>
+        <h2>From Your Idea to <span>Reality</span></h2>
+        <p>A simple four-step process to turn your occasion into a personalized digital experience.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Choose</h3>
+          <p>Select the digital experience that matches your occasion.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3>Personalize</h3>
+          <p>Share names, photos, dates and your special message.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3>Creation</h3>
+          <p>We design and customize your digital experience.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">04</div>
+          <h3>Share</h3>
+          <p>Receive your website link and share the special moment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="heading center reveal">
+        <span class="kicker">THE TΛSΛWΛR APPROACH</span>
+        <h2>Designed with <span>Purpose</span></h2>
+        <p>Technology and creativity come together to make every experience unique.</p>
+      </div>
+
+      <div class="values">
+        <div class="value reveal">
+          <i class="fas fa-fingerprint"></i>
+          <h3>Personalized Design</h3>
+          <p>Every experience is built around your names, photos and ideas.</p>
+        </div>
+        <div class="value reveal">
+          <i class="fas fa-wand-magic-sparkles"></i>
+          <h3>Interactive Animations</h3>
+          <p>Thoughtful visual details and engaging interactions throughout.</p>
+        </div>
+        <div class="value reveal">
+          <i class="fas fa-mobile-screen"></i>
+          <h3>Responsive Design</h3>
+          <p>Beautiful experiences on mobile, tablet and desktop.</p>
+        </div>
+        <div class="value reveal">
+          <i class="fas fa-link"></i>
+          <h3>Easy Sharing</h3>
+          <p>Share a personalized experience using its own unique web link.</p>
+        </div>
+        <div class="value reveal">
+          <i class="fas fa-images"></i>
+          <h3>Meaningful Memories</h3>
+          <p>Photographs, stories and messages brought together in one place.</p>
+        </div>
+        <div class="value reveal">
+          <i class="fas fa-code"></i>
+          <h3>Creative Engineering</h3>
+          <p>Modern web technology with careful attention to every detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="pricing">
+    <div class="container">
+      <div class="heading center reveal">
+        <span class="kicker">FLEXIBLE OPTIONS</span>
+        <h2>Your Experience. <span>Your Choice</span></h2>
+        <p>Choose the level of customization that suits your idea.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="price-card reveal">
+          <div class="price-tag">01 / BASIC</div>
+          <h3>Basic Experience</h3>
+          <p>A ready-to-customize design with your personal details.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Pre-designed template</li>
+            <li><i class="fas fa-check"></i> Your names and photos</li>
+            <li><i class="fas fa-check"></i> Personalized message</li>
+            <li><i class="fas fa-check"></i> Shareable web link</li>
+          </ul>
+          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Request a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-tag">02 / PREMIUM</div>
+          <h3>Premium Experience</h3>
+          <p>Additional personalization, animations and creative details.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Everything in Basic</li>
+            <li><i class="fas fa-check"></i> Custom animations</li>
+            <li><i class="fas fa-check"></i> Photo gallery sections</li>
+            <li><i class="fas fa-check"></i> Interactive elements</li>
+          </ul>
+          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Request a Quote <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-tag">03 / CUSTOM</div>
+          <h3>Custom Experience</h3>
+          <p>A unique digital experience developed around your own concept.</p>
+          <ul>
+            <li><i class="fas fa-check"></i> Fully custom design</li>
+            <li><i class="fas fa-check"></i> Unique interactions</li>
+            <li><i class="fas fa-check"></i> Advanced features</li>
+            <li><i class="fas fa-check"></i> Priority support</li>
+          </ul>
+          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Discuss Your Idea <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<!-- Footer inject yahan hoga -->
+<!-- Footer yahan inject hoga (template is page mein nahi hai — /index.html se fetch) -->
 <div id="site-footer"></div>
 
 <script>
@@ -540,7 +1051,6 @@
 (function() {
   "use strict";
 
-  /* THEME */
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("tasawar-theme", theme);
@@ -549,7 +1059,6 @@
   }
   setTheme(localStorage.getItem("tasawar-theme") || "dark");
 
-  /* SHARED HEADER/FOOTER LOADER */
   async function loadComponent(templateId, targetSelector, sourcePage) {
     var target = document.querySelector(targetSelector);
     if (!target) return;
@@ -571,7 +1080,6 @@
     }
   }
 
-  /* HEADER EVENTS */
   function initHeaderEvents() {
     var themeToggle = document.getElementById("themeToggle");
     if (themeToggle) {
@@ -605,7 +1113,6 @@
     }
   }
 
-  /* PARTICLES */
   var canvas = document.getElementById("particles-canvas");
   var ctx = canvas ? canvas.getContext("2d") : null;
   var particles = [];
@@ -662,13 +1169,28 @@
     requestAnimationFrame(draw);
   }
 
-  /* BOOT */
+  function setupReveal() {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .1 });
+
+    document.querySelectorAll(".reveal").forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
+
   (async function boot() {
     await Promise.all([
       loadComponent("header-template", "#site-header", "/index.html"),
       loadComponent("footer-template", "#site-footer", "/index.html")
     ]);
     initHeaderEvents();
+    setupReveal();
     if (canvas) {
       resize();
       window.addEventListener("resize", resize);
