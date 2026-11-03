@@ -268,99 +268,13 @@
       line-height:.98;
       font-weight:900;
       letter-spacing:-4px;
-      margin-bottom:28px;
+      margin-bottom:0;
     }
 
     .studio-hero h1 .outline {
       color:transparent;
       -webkit-text-stroke:1.5px var(--text-primary);
       display:block;
-    }
-
-    .studio-tagline {
-      font-family:var(--font-display);
-      font-size:clamp(14px,2vw,19px);
-      letter-spacing:4px;
-      color:var(--text-secondary);
-      text-transform:uppercase;
-      margin-bottom:24px;
-    }
-
-    .studio-desc {
-      max-width:600px;
-      margin:0 auto 42px;
-      color:var(--text-muted);
-      font-size:15px;
-      line-height:1.9;
-    }
-
-    .studio-actions {
-      display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      justify-content:center;
-    }
-
-    .action {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:14px 30px;
-      border-radius:50px;
-      border:1px solid var(--glass-border);
-      font-size:13px;
-      font-weight:600;
-      transition:all .3s ease;
-    }
-
-    .action-solid {
-      background:var(--text-primary);
-      color:var(--bg-primary);
-      border-color:var(--text-primary);
-    }
-
-    .action-solid:hover {
-      background:transparent;
-      color:var(--text-primary);
-      transform:translateY(-3px);
-    }
-
-    .action-line {
-      background:transparent;
-      color:var(--text-primary);
-    }
-
-    .action-line:hover {
-      background:var(--accent-dim);
-      transform:translateY(-3px);
-    }
-
-    .scroll-hint {
-      position:absolute;
-      bottom:36px;
-      left:50%;
-      transform:translateX(-50%);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:10px;
-      color:var(--text-muted);
-      font-family:var(--font-display);
-      font-size:9px;
-      letter-spacing:2px;
-    }
-
-    .scroll-hint .line {
-      width:1px;
-      height:36px;
-      background:linear-gradient(to bottom,var(--text-muted),transparent);
-      animation:scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0%,100% { opacity:.3; transform:scaleY(.6); }
-      50% { opacity:1; transform:scaleY(1); }
     }
 
     /* SHARED FOOTER */
@@ -399,29 +313,6 @@
     }
 
     .footer-links a:hover { color:var(--text-primary); }
-
-    .footer-social {
-      display:flex;
-      gap:10px;
-    }
-
-    .footer-social a {
-      width:32px;
-      height:32px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--border-subtle);
-      border-radius:50%;
-      font-size:12px;
-      color:var(--text-secondary);
-      transition:background .25s,color .25s,transform .25s;
-    }
-
-    .footer-social a:hover {
-      background:var(--text-primary);
-      color:var(--bg-primary);
-      transform:translateY(-2px);
-    }
 
     .footer-copy {
       padding:20px 0;
@@ -465,28 +356,6 @@
           TΛSΛWΛR
           <span class="outline">Studio</span>
         </h1>
-
-        <div class="studio-tagline">Create with Creativity</div>
-
-        <p class="studio-desc">
-          We design and build personalized digital experiences for the moments that
-          matter most. Birthdays, anniversaries, weddings and every occasion worth
-          remembering.
-        </p>
-
-        <div class="studio-actions">
-          <a href="/digital-experiences/" class="action action-solid">
-            Explore Experiences <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="/digital-experiences/#contact" class="action action-line">
-            Start a Project
-          </a>
-        </div>
-      </div>
-
-      <div class="scroll-hint" aria-hidden="true">
-        <span>SCROLL</span>
-        <div class="line"></div>
       </div>
     </div>
   </section>
@@ -515,7 +384,6 @@
     + '    <nav class="nav" id="nav">'
     + '      <a href="/">Home</a>'
     + '      <a href="/digital-experiences/">Experiences</a>'
-    + '      <a href="/digital-experiences/#how-it-works">Process</a>'
     + '      <a href="/digital-experiences/#pricing">Pricing</a>'
     + '      <a href="/digital-experiences/#contact">Contact</a>'
     + '    </nav>'
@@ -540,14 +408,6 @@
     + '        <a href="/digital-experiences/">Experiences</a>'
     + '        <a href="/digital-experiences/#pricing">Pricing</a>'
     + '        <a href="/digital-experiences/#contact">Contact</a>'
-    + '        <a href="#">Privacy</a>'
-    + '        <a href="#">Terms</a>'
-    + '      </div>'
-    + '      <div class="footer-social">'
-    + '        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>'
-    + '        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>'
-    + '        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>'
-    + '        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>'
     + '      </div>'
     + '    </div>'
     + '    <div class="footer-copy">'
