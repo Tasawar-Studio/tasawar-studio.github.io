@@ -1,3 +1,4 @@
+<!-- ================= index.html (HOMEPAGE - SOURCE OF TRUTH) ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tasawar-studio.github.io/">
 
-  <!-- FAVICON (Browser tab / taskbar only) -->
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <meta name="theme-color" content="#000000">
@@ -407,10 +407,7 @@
     .footer-bottom-links a:hover { color:var(--text-primary); }
 
     @media(max-width:1024px) {
-      .footer-top {
-        grid-template-columns:1fr 1fr;
-        gap:40px;
-      }
+      .footer-top { grid-template-columns:1fr 1fr; gap:40px; }
     }
 
     @media(max-width:650px) {
@@ -436,8 +433,89 @@
 <body>
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-<!-- SHARED HEADER LOADED AUTOMATICALLY -->
-<div id="header-loader"></div>
+<!-- ============================================================
+     HEADER TEMPLATE — YAHAN CHANGE KARO → SAB PAGES UPDATE
+     ============================================================ -->
+<template id="header-template">
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
+        <span>TΛSΛWΛR</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="/">Home</a>
+        <a href="/digital-experiences/">Experiences</a>
+        <a href="/digital-experiences/#pricing">Pricing</a>
+        <a href="/digital-experiences/#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+</template>
+
+<!-- ============================================================
+     FOOTER TEMPLATE — YAHAN CHANGE KARO → SAB PAGES UPDATE
+     ============================================================ -->
+<template id="footer-template">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
+            <span>TΛSΛWΛR</span>
+          </a>
+          <p>We design and build personalized digital experiences for the moments that matter most. Birthdays, anniversaries, weddings and every occasion worth remembering.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/digital-experiences/">Experiences</a></li>
+            <li><a href="/digital-experiences/#pricing">Pricing</a></li>
+            <li><a href="/digital-experiences/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/digital-experiences/">Birthday Websites</a></li>
+            <li><a href="/digital-experiences/">Anniversary Surprises</a></li>
+            <li><a href="/digital-experiences/">Wedding Invitations</a></li>
+            <li><a href="/digital-experiences/">Greeting Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923047467957" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+            <li><i class="fas fa-bullhorn"></i> <a href="https://whatsapp.com/channel/0029Vb9Dm5AIyPtKhdoLde0C" target="_blank" rel="noopener">WhatsApp Channel</a></li>
+            <li><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@tasawar_studio" target="_blank" rel="noopener">TikTok</a></li>
+            <li><i class="fab fa-x-twitter"></i> <a href="https://x.com/TasawarStudio" target="_blank" rel="noopener">X (Twitter)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 TΛSΛWΛR Studio. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<!-- Header inject yahan hoga -->
+<div id="site-header"></div>
 
 <main>
   <section class="studio-hero">
@@ -446,179 +524,94 @@
         <div class="studio-label">
           <span class="pulse"></span> TΛSΛWΛR STUDIO
         </div>
-
-        <h1>
-          TΛSΛWΛR
-          <span class="outline">Studio</span>
-        </h1>
+        <h1>TΛSΛWΛR <span class="outline">Studio</span></h1>
       </div>
     </div>
   </section>
 </main>
 
-<!-- SHARED FOOTER LOADED AUTOMATICALLY -->
-<div id="footer-loader"></div>
+<!-- Footer inject yahan hoga -->
+<div id="site-footer"></div>
 
 <script>
-/*
-  SHARED HEADER AND FOOTER SYSTEM
-*/
+/* ============================================================
+   SHARED HEADER/FOOTER SCRIPT — HAR PAGE MEIN COPY KARO
+   ============================================================ */
 (function() {
   "use strict";
 
-  // favicon.ico -> browser tab / taskbar icon only
-  // logo.ico    -> visible logo image inside header & footer
-  var LOGO_ICON_SRC = "https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico";
+  /* THEME */
+  function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("tasawar-theme", theme);
+    var icon = document.querySelector("#themeToggle i");
+    if (icon) icon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
+  }
+  setTheme(localStorage.getItem("tasawar-theme") || "dark");
 
-  // Contact links (number never shown on page)
-  var WA_CHAT    = "https://wa.me/923047467957";
-  var WA_CHANNEL = "https://whatsapp.com/channel/0029Vb9Dm5AIyPtKhdoLde0C";
-  var TIKTOK     = "https://www.tiktok.com/@tasawar_studio";
-  var X_LINK     = "https://x.com/TasawarStudio";
+  /* SHARED HEADER/FOOTER LOADER */
+  async function loadComponent(templateId, targetSelector, sourcePage) {
+    var target = document.querySelector(targetSelector);
+    if (!target) return;
 
-  var HEADER_TEMPLATE = ''
-    + '<header class="site-header" id="siteHeader">'
-    + '  <div class="container header-inner">'
-    + '    <a href="/" class="logo">'
-    + '      <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
-    + '      <span>TΛSΛWΛR</span>'
-    + '    </a>'
-    + '    <nav class="nav" id="nav">'
-    + '      <a href="/">Home</a>'
-    + '      <a href="/digital-experiences/">Experiences</a>'
-    + '      <a href="/digital-experiences/#pricing">Pricing</a>'
-    + '      <a href="/digital-experiences/#contact">Contact</a>'
-    + '    </nav>'
-    + '    <div class="header-actions">'
-    + '      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">'
-    + '        <i class="fas fa-moon"></i>'
-    + '      </button>'
-    + '      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">'
-    + '        <i class="fas fa-bars"></i>'
-    + '      </button>'
-    + '    </div>'
-    + '  </div>'
-    + '</header>';
-
-  var FOOTER_TEMPLATE = ''
-    + '<footer class="site-footer">'
-    + '  <div class="container">'
-    + '    <div class="footer-top">'
-
-    // Brand Column (icons removed)
-    + '      <div class="footer-brand">'
-    + '        <a href="/" class="logo">'
-    + '          <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
-    + '          <span>TΛSΛWΛR</span>'
-    + '        </a>'
-    + '        <p>We design and build personalized digital experiences for the moments that matter most. Birthdays, anniversaries, weddings and every occasion worth remembering.</p>'
-    + '      </div>'
-
-    // Company Column
-    + '      <div class="footer-col">'
-    + '        <h4>Company</h4>'
-    + '        <ul>'
-    + '          <li><a href="/">Home</a></li>'
-    + '          <li><a href="/digital-experiences/">Experiences</a></li>'
-    + '          <li><a href="/digital-experiences/#pricing">Pricing</a></li>'
-    + '          <li><a href="/digital-experiences/#contact">Contact</a></li>'
-    + '        </ul>'
-    + '      </div>'
-
-    // Services Column
-    + '      <div class="footer-col">'
-    + '        <h4>Services</h4>'
-    + '        <ul>'
-    + '          <li><a href="/digital-experiences/">Birthday Websites</a></li>'
-    + '          <li><a href="/digital-experiences/">Anniversary Surprises</a></li>'
-    + '          <li><a href="/digital-experiences/">Wedding Invitations</a></li>'
-    + '          <li><a href="/digital-experiences/">Greeting Websites</a></li>'
-    + '        </ul>'
-    + '      </div>'
-
-    // Contact Column
-    + '      <div class="footer-col">'
-    + '        <h4>Get in Touch</h4>'
-    + '        <ul class="footer-contact-list">'
-    + '          <li><i class="fab fa-whatsapp"></i> <a href="' + WA_CHAT + '" target="_blank" rel="noopener">WhatsApp Chat</a></li>'
-    + '          <li><i class="fas fa-bullhorn"></i> <a href="' + WA_CHANNEL + '" target="_blank" rel="noopener">WhatsApp Channel</a></li>'
-    + '          <li><i class="fab fa-tiktok"></i> <a href="' + TIKTOK + '" target="_blank" rel="noopener">TikTok</a></li>'
-    + '          <li><i class="fab fa-x-twitter"></i> <a href="' + X_LINK + '" target="_blank" rel="noopener">X (Twitter)</a></li>'
-    + '        </ul>'
-    + '      </div>'
-
-    + '    </div>'
-
-    + '    <div class="footer-bottom">'
-    + '      <span>&copy; 2026 TΛSΛWΛR Studio. All rights reserved.</span>'
-    + '      <div class="footer-bottom-links">'
-    + '        <a href="#">Privacy Policy</a>'
-    + '        <a href="#">Terms of Service</a>'
-    + '      </div>'
-    + '    </div>'
-    + '  </div>'
-    + '</footer>';
-
-  function injectSharedParts() {
-    var headerLoader = document.getElementById("header-loader");
-    var footerLoader = document.getElementById("footer-loader");
-    if (headerLoader) headerLoader.innerHTML = HEADER_TEMPLATE;
-    if (footerLoader) footerLoader.innerHTML = FOOTER_TEMPLATE;
-
-    /* THEME */
-    var savedTheme = localStorage.getItem("tasawar-theme") || "dark";
-    document.documentElement.setAttribute("data-theme", savedTheme);
-
-    var themeToggle = document.getElementById("themeToggle");
-    var themeIcon = themeToggle.querySelector("i");
-
-    function updateThemeIcon() {
-      var t = document.documentElement.getAttribute("data-theme");
-      themeIcon.className = t === "light" ? "fas fa-sun" : "fas fa-moon";
+    var tpl = document.getElementById(templateId);
+    if (tpl) {
+      target.innerHTML = tpl.innerHTML;
+      return;
     }
-    updateThemeIcon();
 
-    themeToggle.addEventListener("click", function() {
-      var cur = document.documentElement.getAttribute("data-theme");
-      var next = cur === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("tasawar-theme", next);
-      updateThemeIcon();
-    });
+    try {
+      var res = await fetch(sourcePage, { cache: "no-store" });
+      var html = await res.text();
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      var remote = doc.getElementById(templateId);
+      if (remote) target.innerHTML = remote.innerHTML;
+    } catch (e) {
+      console.error("Component load failed:", templateId, e);
+    }
+  }
 
-    /* MOBILE NAV */
-    var nav = document.getElementById("nav");
-    var mobileToggle = document.getElementById("mobileToggle");
-
-    mobileToggle.addEventListener("click", function() {
-      nav.classList.toggle("open");
-      var icon = mobileToggle.querySelector("i");
-      icon.className = nav.classList.contains("open") ? "fas fa-times" : "fas fa-bars";
-    });
-
-    nav.querySelectorAll("a").forEach(function(a) {
-      a.addEventListener("click", function() {
-        nav.classList.remove("open");
-        mobileToggle.querySelector("i").className = "fas fa-bars";
+  /* HEADER EVENTS */
+  function initHeaderEvents() {
+    var themeToggle = document.getElementById("themeToggle");
+    if (themeToggle) {
+      themeToggle.addEventListener("click", function() {
+        var cur = document.documentElement.getAttribute("data-theme");
+        setTheme(cur === "light" ? "dark" : "light");
       });
-    });
+    }
 
-    /* STICKY HEADER SHADOW */
+    var nav = document.getElementById("nav");
+    var mt = document.getElementById("mobileToggle");
+    if (nav && mt) {
+      mt.addEventListener("click", function() {
+        nav.classList.toggle("open");
+        var icon = mt.querySelector("i");
+        icon.className = nav.classList.contains("open") ? "fas fa-times" : "fas fa-bars";
+      });
+      nav.querySelectorAll("a").forEach(function(a) {
+        a.addEventListener("click", function() {
+          nav.classList.remove("open");
+          mt.querySelector("i").className = "fas fa-bars";
+        });
+      });
+    }
+
     var header = document.getElementById("siteHeader");
-    window.addEventListener("scroll", function() {
-      header.style.boxShadow = window.scrollY > 20
-        ? "0 10px 30px rgba(0,0,0,.35)"
-        : "none";
-    }, { passive: true });
+    if (header) {
+      window.addEventListener("scroll", function() {
+        header.style.boxShadow = window.scrollY > 20 ? "0 10px 30px rgba(0,0,0,.35)" : "none";
+      }, { passive: true });
+    }
   }
 
   /* PARTICLES */
   var canvas = document.getElementById("particles-canvas");
   var ctx = canvas ? canvas.getContext("2d") : null;
   var particles = [];
-  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function resizeCanvas() {
+  function resize() {
     if (!canvas) return;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = innerWidth * dpr;
@@ -626,7 +619,6 @@
     canvas.style.width = innerWidth + "px";
     canvas.style.height = innerHeight + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
     particles = Array.from({ length: 50 }, function() {
       return {
         x: Math.random() * innerWidth,
@@ -638,7 +630,7 @@
     });
   }
 
-  function drawParticles() {
+  function draw() {
     if (!ctx) return;
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     var light = document.documentElement.dataset.theme === "light";
@@ -647,20 +639,16 @@
     particles.forEach(function(p, i) {
       p.x += p.vx;
       p.y += p.vy;
-
       if (p.x < 0 || p.x > innerWidth) p.vx *= -1;
       if (p.y < 0 || p.y > innerHeight) p.vy *= -1;
-
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = "rgba(" + color + ",.35)";
       ctx.fill();
-
       for (var j = i + 1; j < particles.length; j++) {
         var q = particles[j];
         var dx = p.x - q.x, dy = p.y - q.y;
         var d = Math.sqrt(dx * dx + dy * dy);
-
         if (d < 110) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
@@ -671,19 +659,23 @@
         }
       }
     });
-
-    requestAnimationFrame(drawParticles);
+    requestAnimationFrame(draw);
   }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    injectSharedParts();
+  /* BOOT */
+  (async function boot() {
+    await Promise.all([
+      loadComponent("header-template", "#site-header", "/index.html"),
+      loadComponent("footer-template", "#site-footer", "/index.html")
+    ]);
+    initHeaderEvents();
     if (canvas) {
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-      if (!reducedMotion) drawParticles();
+      resize();
+      window.addEventListener("resize", resize);
+      if (!reduced) draw();
     }
-  });
-
+    console.log("TΛSΛWΛR Studio | initialized");
+  })();
 })();
 </script>
 </body>
