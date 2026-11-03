@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Digital Experiences | TΛSΛWΛR Studio</title>
-  <meta name="description" content="Discover personalized digital experiences by TΛSΛWΛR Studio. Birthday websites, anniversary surprises, wedding invitations and more.">
+  <title>Digital Experiences</title>
+  <meta name="description" content="Explore 45+ personalized digital experiences by TΛSΛWΛR Studio — birthdays, weddings, interactive stories, brand showcases and more.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tasawar-studio.github.io/Digital-Experiences/">
 
-  <!-- FAVICON (Browser tab / taskbar only) -->
+  <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <meta name="theme-color" content="#000000">
 
-  <!-- OPEN GRAPH / SOCIAL MEDIA PREVIEW -->
-  <meta property="og:title" content="Digital Experiences | TΛSΛWΛR Studio">
-  <meta property="og:description" content="Create with Creativity. Personalized websites and interactive experiences for the occasions that deserve more.">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Digital Experiences · TΛSΛWΛR Studio">
+  <meta property="og:description" content="45+ personalized digital experiences — birthdays, weddings, interactive stories, brand showcases.">
   <meta property="og:image" content="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -24,10 +23,10 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TΛSΛWΛR Studio">
 
-  <!-- TWITTER / X PREVIEW -->
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Digital Experiences | TΛSΛWΛR Studio">
-  <meta name="twitter:description" content="Create with Creativity. Personalized websites and interactive experiences for the occasions that deserve more.">
+  <meta name="twitter:title" content="Digital Experiences · TΛSΛWΛR Studio">
+  <meta name="twitter:description" content="45+ personalized digital experiences — birthdays, weddings, interactive stories, brand showcases.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/preview.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,6 +52,9 @@
       --font-display:'Orbitron',sans-serif;
       --shadow-color:rgba(0,0,0,.6);
       --logo-icon-filter:invert(0);
+      --card-gradient-start:rgba(255,255,255,.06);
+      --card-gradient-end:rgba(255,255,255,.01);
+      --icon-glow:rgba(255,255,255,.08);
     }
 
     [data-theme="light"] {
@@ -68,6 +70,9 @@
       --glass-border:rgba(0,0,0,.12);
       --shadow-color:rgba(0,0,0,.13);
       --logo-icon-filter:invert(1);
+      --card-gradient-start:rgba(0,0,0,.03);
+      --card-gradient-end:rgba(0,0,0,.01);
+      --icon-glow:rgba(0,0,0,.04);
     }
 
     html { scroll-behavior:smooth; scroll-padding-top:100px; }
@@ -103,7 +108,7 @@
       pointer-events:none;
     }
 
-    /* SHARED HEADER */
+    /* HEADER (same as home) */
 
     .site-header {
       position:fixed;
@@ -237,405 +242,203 @@
     /* PAGE HERO */
 
     .page-hero {
-      padding:180px 0 80px;
+      padding:160px 0 50px;
       text-align:center;
-      position:relative;
-      overflow:hidden;
       background:
-        radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.08),transparent 50%),
+        radial-gradient(ellipse at 50% 20%, rgba(255,255,255,.07), transparent 60%),
         var(--bg-primary);
-      border-bottom:1px solid var(--border-subtle);
+      position:relative;
+      z-index:2;
     }
 
-    .page-label {
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:7px 16px;
-      border:1px solid var(--glass-border);
-      border-radius:50px;
-      background:var(--glass-bg);
-      color:var(--text-secondary);
+    .page-hero .eyebrow {
       font-family:var(--font-display);
-      font-size:10px;
-      letter-spacing:2px;
-      margin-bottom:28px;
-      backdrop-filter:blur(12px);
-    }
-
-    .page-label .pulse {
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:var(--text-primary);
-      animation:pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.35; transform:scale(.75); }
+      font-size:11px;
+      letter-spacing:4px;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      margin-bottom:20px;
     }
 
     .page-hero h1 {
       font-family:var(--font-display);
       font-size:clamp(40px,7vw,80px);
-      line-height:1.05;
+      line-height:1.1;
       font-weight:900;
-      letter-spacing:-2.5px;
-      margin-bottom:22px;
+      letter-spacing:-2px;
+      margin-bottom:18px;
     }
 
-    .page-hero h1 .outline {
-      color:transparent;
-      -webkit-text-stroke:1.5px var(--text-primary);
-    }
-
-    .page-hero p {
-      max-width:640px;
+    .page-hero .subhead {
+      font-size:clamp(15px,2vw,19px);
+      color:var(--text-secondary);
+      max-width:700px;
       margin:0 auto;
-      color:var(--text-muted);
+      letter-spacing:.3px;
+    }
+
+    .page-hero .intro-note {
       font-size:15px;
-      line-height:1.9;
-    }
-
-    /* SECTION */
-
-    .section {
-      padding:100px 0;
-      position:relative;
-      z-index:1;
-    }
-
-    .section.alt {
-      background:var(--bg-secondary);
-      border-top:1px solid var(--border-subtle);
-      border-bottom:1px solid var(--border-subtle);
-    }
-
-    .heading {
-      max-width:720px;
-      margin-bottom:56px;
-    }
-
-    .heading.center {
-      text-align:center;
-      margin-left:auto;
-      margin-right:auto;
-    }
-
-    .kicker {
-      display:inline-block;
-      padding:5px 14px;
-      border:1px solid var(--glass-border);
-      background:var(--accent-dim);
-      border-radius:50px;
-      font-family:var(--font-display);
-      font-size:9px;
-      letter-spacing:2px;
-      margin-bottom:18px;
-    }
-
-    .heading h2 {
-      font-family:var(--font-display);
-      font-size:clamp(28px,4vw,46px);
-      line-height:1.22;
-      margin-bottom:16px;
-      letter-spacing:-.5px;
-    }
-
-    .heading h2 span { opacity:.5; }
-
-    .heading p {
       color:var(--text-muted);
-      font-size:14px;
-      max-width:620px;
+      max-width:640px;
+      margin:18px auto 0;
     }
 
-    .heading.center p { margin:auto; }
+    /* SERVICE CARDS with real images */
 
-    /* SERVICE GRID */
-
-    .services {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .service {
+    .services-wrap {
+      padding:20px 0 60px;
       position:relative;
-      padding:34px 30px;
-      border:1px solid var(--border-subtle);
-      border-radius:18px;
-      background:var(--bg-card);
-      transition:transform .35s,border-color .35s,box-shadow .35s;
+      z-index:2;
+    }
+
+    .category-block {
+      margin-bottom:60px;
+    }
+
+    .category-head {
       display:flex;
-      flex-direction:column;
-    }
-
-    .service:hover {
-      transform:translateY(-7px);
-      border-color:var(--text-muted);
-      box-shadow:0 20px 50px var(--shadow-color);
-    }
-
-    .service .num {
-      position:absolute;
-      top:22px;
-      right:26px;
-      font-family:var(--font-display);
-      font-size:11px;
-      color:var(--text-muted);
-      letter-spacing:2px;
-    }
-
-    .service-icon {
-      width:54px;
-      height:54px;
-      display:grid;
-      place-items:center;
-      border-radius:14px;
-      border:1px solid var(--glass-border);
-      background:var(--accent-dim);
-      font-size:22px;
-      margin-bottom:24px;
-    }
-
-    .service h3 {
-      font-family:var(--font-display);
-      font-size:17px;
-      line-height:1.4;
-      margin-bottom:12px;
-    }
-
-    .service p {
-      font-size:13px;
-      color:var(--text-muted);
-      margin-bottom:22px;
-    }
-
-    .service ul {
-      list-style:none;
+      align-items:center;
+      gap:16px;
       margin-bottom:26px;
-      flex:1;
+      border-bottom:1px solid var(--border-subtle);
+      padding-bottom:14px;
     }
 
-    .service ul li {
-      font-size:12.5px;
-      color:var(--text-secondary);
-      padding:6px 0;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .service ul li i {
-      font-size:10px;
-      color:var(--text-primary);
-      opacity:.7;
-    }
-
-    .service-cta {
-      margin-top:auto;
-      padding-top:20px;
-      border-top:1px solid var(--border-subtle);
-    }
-
-    .service-cta a {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12.5px;
-      font-weight:600;
-      color:var(--text-primary);
-      transition:gap .3s;
-    }
-
-    .service-cta a:hover { gap:14px; }
-
-    /* PROCESS */
-
-    .steps {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
-    }
-
-    .step {
-      padding:30px 24px;
-      border:1px solid var(--border-subtle);
-      border-radius:16px;
-      background:var(--bg-card);
-      transition:border-color .3s,transform .3s;
-    }
-
-    .step:hover { border-color:var(--text-muted); transform:translateY(-4px); }
-
-    .step-num {
-      font-family:var(--font-display);
-      font-size:32px;
-      font-weight:800;
-      color:var(--text-muted);
-      opacity:.6;
-      margin-bottom:22px;
-    }
-
-    .step h3 {
+    .category-head .cat-index {
       font-family:var(--font-display);
       font-size:14px;
-      margin-bottom:10px;
-    }
-
-    .step p { color:var(--text-muted); font-size:12.5px; }
-
-    /* WHY US */
-
-    .values {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .value {
-      padding:28px 26px;
-      border:1px solid var(--border-subtle);
-      border-radius:14px;
-      background:var(--bg-card);
-      transition:border-color .3s,transform .3s;
-    }
-
-    .value:hover { border-color:var(--text-muted); transform:translateY(-4px); }
-
-    .value i {
-      font-size:20px;
-      margin-bottom:18px;
-      display:block;
-    }
-
-    .value h3 {
-      font-family:var(--font-display);
-      font-size:13px;
-      margin-bottom:9px;
-      letter-spacing:.5px;
-    }
-
-    .value p { color:var(--text-muted); font-size:12.5px; }
-
-    /* PRICING */
-
-    .pricing {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .price-card {
-      padding:36px 30px;
-      border:1px solid var(--border-subtle);
-      border-radius:18px;
-      background:var(--bg-card);
-      display:flex;
-      flex-direction:column;
-      transition:transform .3s,border-color .3s;
-    }
-
-    .price-card:hover { transform:translateY(-5px); }
-
-    .price-card.featured {
-      border-color:var(--text-primary);
-      position:relative;
-    }
-
-    .price-card.featured::before {
-      content:"MOST POPULAR";
-      position:absolute;
-      top:-10px;
-      left:50%;
-      transform:translateX(-50%);
-      padding:4px 12px;
-      background:var(--text-primary);
-      color:var(--bg-primary);
-      font-family:var(--font-display);
-      font-size:9px;
-      letter-spacing:1.5px;
-      border-radius:50px;
-      white-space:nowrap;
-    }
-
-    .price-tag {
-      font-family:var(--font-display);
-      font-size:10px;
-      letter-spacing:2px;
+      font-weight:700;
+      letter-spacing:1px;
       color:var(--text-muted);
-      margin-bottom:14px;
+      min-width:36px;
     }
 
-    .price-card h3 {
+    .category-head h2 {
       font-family:var(--font-display);
-      font-size:19px;
-      margin-bottom:12px;
+      font-size:clamp(20px,2.6vw,28px);
+      font-weight:700;
+      letter-spacing:-.5px;
+      color:var(--text-primary);
+      text-transform:uppercase;
     }
 
-    .price-card > p {
-      color:var(--text-muted);
-      font-size:13px;
-      margin-bottom:24px;
-      line-height:1.8;
-    }
-
-    .price-card ul {
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+      gap:16px;
       list-style:none;
-      margin-bottom:28px;
-      flex:1;
     }
 
-    .price-card ul li {
-      font-size:12.5px;
-      color:var(--text-secondary);
-      padding:7px 0;
-      display:flex;
-      align-items:center;
-      gap:10px;
+    /* CARD DESIGN with image */
+    .service-card {
+      background: linear-gradient(145deg, var(--card-gradient-start), var(--card-gradient-end));
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      transition: all .3s ease;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+      min-height: 100px;
     }
 
-    .price-card ul li i {
-      font-size:10px;
-      color:var(--text-primary);
-      opacity:.7;
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, var(--icon-glow), transparent 70%);
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .price-cta {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:13px 26px;
-      border-radius:50px;
-      font-size:12.5px;
-      font-weight:600;
-      border:1px solid var(--glass-border);
-      background:transparent;
-      color:var(--text-primary);
-      transition:all .3s ease;
+    .service-card:hover {
+      border-color: var(--glass-border);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 28px -8px var(--shadow-color);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    /* IMAGE WRAPPER */
+    .service-img-wrap {
+      width: 100px;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: 18px 0 0 18px;
+    }
+
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+      display: block;
+    }
+
+    .service-card:hover .service-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    /* TEXT */
+    .service-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 18px;
+    }
+
+    .service-content .service-num {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .service-content .service-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      transition: color .3s;
+    }
+
+    .service-card:hover .service-content .service-name {
+      color: var(--text-primary);
+    }
+
+    /* CLOSING NOTE */
+    .closing-note {
+      margin-top:36px;
+      border-top:1px solid var(--border-subtle);
+      padding-top:30px;
       text-align:center;
+      font-size:14px;
+      color:var(--text-muted);
+      letter-spacing:.4px;
     }
 
-    .price-cta:hover {
-      background:var(--accent-dim);
-      transform:translateY(-2px);
+    .closing-note strong {
+      color:var(--text-secondary);
+      font-weight:500;
     }
 
-    .price-card.featured .price-cta {
-      background:var(--text-primary);
-      color:var(--bg-primary);
-      border-color:var(--text-primary);
-    }
-
-    .price-card.featured .price-cta:hover {
-      background:transparent;
-      color:var(--text-primary);
-    }
-
-    /* CORPORATE FOOTER */
+    /* FOOTER (same as home) */
 
     .site-footer {
       position:relative;
@@ -752,35 +555,21 @@
 
     .footer-bottom-links a:hover { color:var(--text-primary); }
 
-    /* REVEAL */
-
-    .reveal {
-      opacity:0;
-      transform:translateY(24px);
-      transition:opacity .7s ease,transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    /* RESPONSIVE */
-
     @media(max-width:1024px) {
-      .services, .values, .pricing { grid-template-columns:repeat(2,1fr); }
-      .steps { grid-template-columns:repeat(2,1fr); }
       .footer-top { grid-template-columns:1fr 1fr; gap:40px; }
     }
 
     @media(max-width:650px) {
-      .page-hero { padding:140px 0 60px; }
-      .section { padding:70px 0; }
-      .services, .values, .pricing, .steps { grid-template-columns:1fr; }
+      .site-footer { padding:50px 0 0; }
       .footer-top { grid-template-columns:1fr; gap:36px; padding-bottom:40px; }
       .footer-bottom { justify-content:center; text-align:center; }
       .logo { font-size:18px; }
       .logo-img { width:40px; height:40px; }
+      .page-hero { padding:130px 0 30px; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-img-wrap { width: 80px; }
+      .service-content { padding: 14px 16px; }
+      .service-content .service-name { font-size: 13px; }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -789,7 +578,6 @@
         animation:none!important;
         transition:none!important;
       }
-      .reveal { opacity:1; transform:none; }
     }
   </style>
 </head>
@@ -797,264 +585,365 @@
 <body>
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-<!-- Header yahan inject hoga (template is page mein nahi hai — /index.html se fetch) -->
+<!-- HEADER TEMPLATE (same as home) -->
+<template id="header-template">
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
+        <span>TΛSΛWΛR</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="/">Home</a>
+        <a href="/Digital-Experiences/">Experiences</a>
+        <a href="/Digital-Experiences/#pricing">Pricing</a>
+        <a href="/Digital-Experiences/#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+</template>
+
+<!-- FOOTER TEMPLATE (same as home) -->
+<template id="footer-template">
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico" alt="TΛSΛWΛR" class="logo-img">
+            <span>TΛSΛWΛR</span>
+          </a>
+          <p>We design and build personalized digital experiences for the moments that matter most. Birthdays, anniversaries, weddings and every occasion worth remembering.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Digital-Experiences/">Experiences</a></li>
+            <li><a href="/Digital-Experiences/#pricing">Pricing</a></li>
+            <li><a href="/Digital-Experiences/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/Digital-Experiences/">Birthday Websites</a></li>
+            <li><a href="/Digital-Experiences/">Anniversary Surprises</a></li>
+            <li><a href="/Digital-Experiences/">Wedding Invitations</a></li>
+            <li><a href="/Digital-Experiences/">Greeting Websites</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul class="footer-contact-list">
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923047467957" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+            <li><i class="fas fa-bullhorn"></i> <a href="https://whatsapp.com/channel/0029Vb9Dm5AIyPtKhdoLde0C" target="_blank" rel="noopener">WhatsApp Channel</a></li>
+            <li><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@tasawar_studio" target="_blank" rel="noopener">TikTok</a></li>
+            <li><i class="fab fa-x-twitter"></i> <a href="https://x.com/TasawarStudio" target="_blank" rel="noopener">X (Twitter)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 TΛSΛWΛR Studio. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<!-- Header inject -->
 <div id="site-header"></div>
 
 <main>
-
+  <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container">
-      <div class="page-label">
-        <span class="pulse"></span> DIGITAL EXPERIENCES
-      </div>
-      <h1>Moments Made<br><span class="outline">Digital</span></h1>
-      <p>Personalized websites and interactive experiences for the occasions that deserve more than an ordinary greeting.</p>
+      <div class="eyebrow">TΛSΛWΛR STUDIO · DIGITAL EXPERIENCES</div>
+      <h1>What We Do</h1>
+      <p class="subhead">Creative Digital Experiences &amp; Interactive Creations</p>
+      <p class="intro-note">TΛSΛWΛR Studio mein hum ye tamam kaam karenge — from personal milestones to brand activations, all crafted with creativity and precision.</p>
     </div>
   </section>
 
-  <section class="section" id="experiences">
+  <!-- SERVICE CARDS with real images -->
+  <section class="services-wrap">
     <div class="container">
-      <div class="heading center reveal">
-        <span class="kicker">WHAT WE CREATE</span>
-        <h2>Experiences Made <span>Personal</span></h2>
-        <p>Six signature experience types, each designed around a moment worth remembering.</p>
+
+      <!-- 1. Celebration Experiences -->
+      <div class="category-block" id="celebration">
+        <div class="category-head">
+          <span class="cat-index">01</span>
+          <h2>Celebration Experiences</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&q=80&auto=format&fit=crop" alt="Birthday Website" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">1</span><span class="service-name">Birthday Websites</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&q=80&auto=format&fit=crop" alt="Anniversary Surprise" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">2</span><span class="service-name">Anniversary Surprises</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&q=80&auto=format&fit=crop" alt="Valentine" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">3</span><span class="service-name">Valentine's Day Experiences</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80&auto=format&fit=crop" alt="Graduation" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">4</span><span class="service-name">Graduation Celebrations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80&auto=format&fit=crop" alt="Wedding" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">5</span><span class="service-name">Wedding Invitations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&q=80&auto=format&fit=crop" alt="Engagement" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">6</span><span class="service-name">Engagement Announcements</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=200&q=80&auto=format&fit=crop" alt="Baby Shower" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">7</span><span class="service-name">Baby Shower Invitations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1496843916299-590492c751f4?w=200&q=80&auto=format&fit=crop" alt="Congratulations" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">8</span><span class="service-name">Congratulations Experiences</span></div>
+          </li>
+        </ul>
       </div>
 
-      <div class="services">
-        <article class="service reveal">
-          <span class="num">01</span>
-          <div class="service-icon"><i class="fas fa-cake-candles"></i></div>
-          <h3>Birthday Websites</h3>
-          <p>Turn a birthday wish into a personalized interactive surprise.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Animated cakes and candles</li>
-            <li><i class="fas fa-check"></i> Balloons and confetti</li>
-            <li><i class="fas fa-check"></i> Personalized messages</li>
-            <li><i class="fas fa-check"></i> Photo galleries</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Birthday Website <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="service reveal">
-          <span class="num">02</span>
-          <div class="service-icon"><i class="fas fa-heart"></i></div>
-          <h3>Anniversary Surprises</h3>
-          <p>Celebrate your story with a personalized digital experience.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Romantic experiences</li>
-            <li><i class="fas fa-check"></i> Couple photo galleries</li>
-            <li><i class="fas fa-check"></i> Love stories and timelines</li>
-            <li><i class="fas fa-check"></i> Animated effects</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Anniversary Surprise <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="service reveal">
-          <span class="num">03</span>
-          <div class="service-icon"><i class="fas fa-ring"></i></div>
-          <h3>Wedding Invitations</h3>
-          <p>Make your wedding invitation as special as the occasion.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Elegant digital invitations</li>
-            <li><i class="fas fa-check"></i> Bride and groom details</li>
-            <li><i class="fas fa-check"></i> Wedding countdown</li>
-            <li><i class="fas fa-check"></i> RSVP options</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Wedding Invitation <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="service reveal">
-          <span class="num">04</span>
-          <div class="service-icon"><i class="fas fa-heart-circle-bolt"></i></div>
-          <h3>Valentine's Experiences</h3>
-          <p>Express your feelings through a creative digital surprise.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Romantic interactive pages</li>
-            <li><i class="fas fa-check"></i> Animated hearts</li>
-            <li><i class="fas fa-check"></i> Personal love messages</li>
-            <li><i class="fas fa-check"></i> Photo memories</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Valentine's Experience <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="service reveal">
-          <span class="num">05</span>
-          <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Graduation Celebrations</h3>
-          <p>Give achievements a celebration worth remembering.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Graduate's name and photos</li>
-            <li><i class="fas fa-check"></i> Academic achievements</li>
-            <li><i class="fas fa-check"></i> Congratulatory messages</li>
-            <li><i class="fas fa-check"></i> Graduation animations</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Graduation Celebration <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
-
-        <article class="service reveal">
-          <span class="num">06</span>
-          <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
-          <h3>Greeting Websites</h3>
-          <p>Transform ordinary greetings into memorable digital moments.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Congratulations websites</li>
-            <li><i class="fas fa-check"></i> Thank-you greetings</li>
-            <li><i class="fas fa-check"></i> Special occasion messages</li>
-            <li><i class="fas fa-check"></i> Interactive animations</li>
-          </ul>
-          <div class="service-cta">
-            <a href="https://wa.me/923047467957" target="_blank" rel="noopener">Create Greeting Website <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </article>
+      <!-- 2. Personal Experiences -->
+      <div class="category-block" id="personal">
+        <div class="category-head">
+          <span class="cat-index">02</span>
+          <h2>Personal Experiences</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Greeting" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">9</span><span class="service-name">Personalized Greeting Websites</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80&auto=format&fit=crop" alt="Love Story" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">10</span><span class="service-name">Digital Love Stories</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&q=80&auto=format&fit=crop" alt="Friendship" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">11</span><span class="service-name">Friendship Websites</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Memory" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">12</span><span class="service-name">Memory Websites</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Timeline" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">13</span><span class="service-name">Personal Timeline Experiences</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=200&q=80&auto=format&fit=crop" alt="Scrapbook" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">14</span><span class="service-name">Digital Scrapbooks</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Thank You" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">15</span><span class="service-name">Personalized Thank You Pages</span></div>
+          </li>
+        </ul>
       </div>
+
+      <!-- 3. Event Experiences -->
+      <div class="category-block" id="event">
+        <div class="category-head">
+          <span class="cat-index">03</span>
+          <h2>Event Experiences</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Event Invitation" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">16</span><span class="service-name">Digital Event Invitations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Landing Page" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">17</span><span class="service-name">Event Landing Pages</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=200&q=80&auto=format&fit=crop" alt="RSVP" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">18</span><span class="service-name">Interactive RSVP Websites</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=200&q=80&auto=format&fit=crop" alt="Countdown" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">19</span><span class="service-name">Event Countdown Pages</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=200&q=80&auto=format&fit=crop" alt="Event Program" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">20</span><span class="service-name">Digital Event Programs</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=200&q=80&auto=format&fit=crop" alt="Conference" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">21</span><span class="service-name">Conference &amp; Party Experiences</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 4. Interactive Experiences -->
+      <div class="category-block" id="interactive">
+        <div class="category-head">
+          <span class="cat-index">04</span>
+          <h2>Interactive Experiences</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&q=80&auto=format&fit=crop" alt="Storytelling" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">22</span><span class="service-name">Interactive Storytelling</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Mini Game" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">23</span><span class="service-name">Mini Web Games</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=200&q=80&auto=format&fit=crop" alt="Quiz" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">24</span><span class="service-name">Interactive Quizzes</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&q=80&auto=format&fit=crop" alt="Personality Test" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">25</span><span class="service-name">Personality Tests</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Interactive Timeline" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">26</span><span class="service-name">Interactive Timelines</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=200&q=80&auto=format&fit=crop" alt="Puzzle" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">27</span><span class="service-name">Puzzle Experiences</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Web Experiment" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">28</span><span class="service-name">Creative Web Experiments</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5. Creative Digital Design -->
+      <div class="category-block" id="design">
+        <div class="category-head">
+          <span class="cat-index">05</span>
+          <h2>Creative Digital Design</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Motion Graphics" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">29</span><span class="service-name">Motion Graphics</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=200&q=80&auto=format&fit=crop" alt="3D Web" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">30</span><span class="service-name">3D Web Experiences</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Animated Presentation" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">31</span><span class="service-name">Animated Digital Presentations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80&auto=format&fit=crop" alt="Digital Illustration" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">32</span><span class="service-name">Digital Illustrations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&q=80&auto=format&fit=crop" alt="Visual Storytelling" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">33</span><span class="service-name">Visual Storytelling</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=200&q=80&auto=format&fit=crop" alt="Interactive Art" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">34</span><span class="service-name">Interactive Art Experiences</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 6. Digital Products -->
+      <div class="category-block" id="products">
+        <div class="category-head">
+          <span class="cat-index">06</span>
+          <h2>Digital Products</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&q=80&auto=format&fit=crop" alt="Birthday Template" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">35</span><span class="service-name">Ready-Made Birthday Templates</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80&auto=format&fit=crop" alt="Wedding Template" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">36</span><span class="service-name">Wedding Invitation Templates</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Greeting Template" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">37</span><span class="service-name">Greeting Website Templates</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Interactive Template" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">38</span><span class="service-name">Interactive Website Templates</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Celebration Package" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">39</span><span class="service-name">Digital Celebration Packages</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80&auto=format&fit=crop" alt="Customizable Design" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">40</span><span class="service-name">Customizable Digital Designs</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 7. Business & Brand Experiences -->
+      <div class="category-block" id="business">
+        <div class="category-head">
+          <span class="cat-index">07</span>
+          <h2>Business &amp; Brand Experiences</h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Brand Presentation" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">41</span><span class="service-name">Interactive Brand Presentations</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80&auto=format&fit=crop" alt="Product Showcase" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">42</span><span class="service-name">Digital Product Showcases</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80&auto=format&fit=crop" alt="Campaign Landing" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">43</span><span class="service-name">Creative Campaign Landing Pages</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt="Portfolio" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">44</span><span class="service-name">Interactive Portfolio Experiences</span></div>
+          </li>
+          <li class="service-card">
+            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Brand Invitation" loading="lazy"></div>
+            <div class="service-content"><span class="service-num">45</span><span class="service-name">Digital Brand Invitation</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="closing-note">
+        <strong>45+</strong> personalized experiences — all tailored to your story, brand or celebration.
+      </div>
+
     </div>
   </section>
-
-  <section class="section alt" id="how-it-works">
-    <div class="container">
-      <div class="heading center reveal">
-        <span class="kicker">OUR PROCESS</span>
-        <h2>From Your Idea to <span>Reality</span></h2>
-        <p>A simple four-step process to turn your occasion into a personalized digital experience.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-num">01</div>
-          <h3>Choose</h3>
-          <p>Select the digital experience that matches your occasion.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-num">02</div>
-          <h3>Personalize</h3>
-          <p>Share names, photos, dates and your special message.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-num">03</div>
-          <h3>Creation</h3>
-          <p>We design and customize your digital experience.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-num">04</div>
-          <h3>Share</h3>
-          <p>Receive your website link and share the special moment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="heading center reveal">
-        <span class="kicker">THE TΛSΛWΛR APPROACH</span>
-        <h2>Designed with <span>Purpose</span></h2>
-        <p>Technology and creativity come together to make every experience unique.</p>
-      </div>
-
-      <div class="values">
-        <div class="value reveal">
-          <i class="fas fa-fingerprint"></i>
-          <h3>Personalized Design</h3>
-          <p>Every experience is built around your names, photos and ideas.</p>
-        </div>
-        <div class="value reveal">
-          <i class="fas fa-wand-magic-sparkles"></i>
-          <h3>Interactive Animations</h3>
-          <p>Thoughtful visual details and engaging interactions throughout.</p>
-        </div>
-        <div class="value reveal">
-          <i class="fas fa-mobile-screen"></i>
-          <h3>Responsive Design</h3>
-          <p>Beautiful experiences on mobile, tablet and desktop.</p>
-        </div>
-        <div class="value reveal">
-          <i class="fas fa-link"></i>
-          <h3>Easy Sharing</h3>
-          <p>Share a personalized experience using its own unique web link.</p>
-        </div>
-        <div class="value reveal">
-          <i class="fas fa-images"></i>
-          <h3>Meaningful Memories</h3>
-          <p>Photographs, stories and messages brought together in one place.</p>
-        </div>
-        <div class="value reveal">
-          <i class="fas fa-code"></i>
-          <h3>Creative Engineering</h3>
-          <p>Modern web technology with careful attention to every detail.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="pricing">
-    <div class="container">
-      <div class="heading center reveal">
-        <span class="kicker">FLEXIBLE OPTIONS</span>
-        <h2>Your Experience. <span>Your Choice</span></h2>
-        <p>Choose the level of customization that suits your idea.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="price-card reveal">
-          <div class="price-tag">01 / BASIC</div>
-          <h3>Basic Experience</h3>
-          <p>A ready-to-customize design with your personal details.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Pre-designed template</li>
-            <li><i class="fas fa-check"></i> Your names and photos</li>
-            <li><i class="fas fa-check"></i> Personalized message</li>
-            <li><i class="fas fa-check"></i> Shareable web link</li>
-          </ul>
-          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Request a Quote <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="price-card featured reveal">
-          <div class="price-tag">02 / PREMIUM</div>
-          <h3>Premium Experience</h3>
-          <p>Additional personalization, animations and creative details.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Everything in Basic</li>
-            <li><i class="fas fa-check"></i> Custom animations</li>
-            <li><i class="fas fa-check"></i> Photo gallery sections</li>
-            <li><i class="fas fa-check"></i> Interactive elements</li>
-          </ul>
-          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Request a Quote <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="price-card reveal">
-          <div class="price-tag">03 / CUSTOM</div>
-          <h3>Custom Experience</h3>
-          <p>A unique digital experience developed around your own concept.</p>
-          <ul>
-            <li><i class="fas fa-check"></i> Fully custom design</li>
-            <li><i class="fas fa-check"></i> Unique interactions</li>
-            <li><i class="fas fa-check"></i> Advanced features</li>
-            <li><i class="fas fa-check"></i> Priority support</li>
-          </ul>
-          <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="price-cta">Discuss Your Idea <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<!-- Footer yahan inject hoga (template is page mein nahi hai — /index.html se fetch) -->
+<!-- Footer inject -->
 <div id="site-footer"></div>
 
 <script>
 /* ============================================================
-   SHARED HEADER/FOOTER SCRIPT — HAR PAGE MEIN COPY KARO
+   SHARED HEADER/FOOTER SCRIPT — SAME AS HOME
    ============================================================ */
 (function() {
   "use strict";
@@ -1177,34 +1066,18 @@
     requestAnimationFrame(draw);
   }
 
-  function setupReveal() {
-    var revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: .1 });
-
-    document.querySelectorAll(".reveal").forEach(function(el) {
-      revealObserver.observe(el);
-    });
-  }
-
   (async function boot() {
     await Promise.all([
       loadComponent("header-template", "#site-header", "/index.html"),
       loadComponent("footer-template", "#site-footer", "/index.html")
     ]);
     initHeaderEvents();
-    setupReveal();
     if (canvas) {
       resize();
       window.addEventListener("resize", resize);
       if (!reduced) draw();
     }
-    console.log("TΛSΛWΛR Studio | initialized");
+    console.log("TΛSΛWΛR Studio | Digital-Experiences initialized");
   })();
 })();
 </script>
