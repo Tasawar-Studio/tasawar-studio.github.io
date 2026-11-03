@@ -1,0 +1,8 @@
+# robots.txt for TΛSΛWΛR Studio
+# https://tasawar-studio.github.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap (agar aapke paas sitemap.xml hai to isay uncomment karein)
+# Sitemap: https://tasawar-studio.github.io/sitemap.xml
