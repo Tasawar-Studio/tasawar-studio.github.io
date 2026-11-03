@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>TΛSΛWΛR Studio</title>
+  <meta name="description" content="TΛSΛWΛR Studio creates personalized digital experiences for birthdays, anniversaries, weddings and every moment worth remembering.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tasawar.github.io/">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#000000">
+
+  <meta property="og:title" content="TΛSΛWΛR Studio">
+  <meta property="og:description" content="Create with Creativity.">
+  <meta property="og:image" content="https://tasawar.github.io/image.jpg">
+  <meta property="og:url" content="https://tasawar.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TΛSΛWΛR Studio">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg-primary:#000;
+      --bg-secondary:#0a0a0a;
+      --bg-card:rgba(20,20,20,.85);
+      --text-primary:#fff;
+      --text-secondary:#e0e0e0;
+      --text-muted:#999;
+      --accent-dim:rgba(255,255,255,.08);
+      --border-subtle:rgba(255,255,255,.09);
+      --glass-bg:rgba(10,10,10,.65);
+      --glass-border:rgba(255,255,255,.12);
+      --font-sans:'Inter',sans-serif;
+      --font-display:'Orbitron',sans-serif;
+      --shadow-color:rgba(0,0,0,.6);
+    }
+
+    [data-theme="light"] {
+      --bg-primary:#f5f5f5;
+      --bg-secondary:#eee;
+      --bg-card:rgba(255,255,255,.9);
+      --text-primary:#111;
+      --text-secondary:#333;
+      --text-muted:#666;
+      --accent-dim:rgba(0,0,0,.06);
+      --border-subtle:rgba(0,0,0,.1);
+      --glass-bg:rgba(255,255,255,.75);
+      --glass-border:rgba(0,0,0,.12);
+      --shadow-color:rgba(0,0,0,.13);
+    }
+
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
+
+    body {
+      font-family:var(--font-sans);
+      background:var(--bg-primary);
+      color:var(--text-primary);
+      line-height:1.7;
+      overflow-x:hidden;
+      transition:background .4s,color .3s;
+      min-height:100vh;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    button { font-family:inherit; cursor:pointer; }
+    img { max-width:100%; display:block; }
+
+    .container {
+      max-width:1200px;
+      margin:auto;
+      padding:0 24px;
+      position:relative;
+      z-index:2;
+    }
+
+    #particles-canvas {
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:0;
+      pointer-events:none;
+    }
+
+    /* SHARED HEADER */
+
+    .site-header {
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+      padding:18px 0;
+      background:var(--glass-bg);
+      border-bottom:1px solid var(--border-subtle);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transition:background .3s,border-color .3s,box-shadow .3s;
+    }
+
+    .header-inner {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      font-family:var(--font-display);
+      font-weight:900;
+      font-size:19px;
+      letter-spacing:3px;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+    }
+
+    .logo i { font-size:15px; }
+
+    .nav {
+      display:flex;
+      align-items:center;
+      gap:26px;
+    }
+
+    .nav a {
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:var(--text-secondary);
+      transition:color .25s;
+      position:relative;
+    }
+
+    .nav a::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:1px;
+      background:var(--text-primary);
+      transition:width .3s;
+    }
+
+    .nav a:hover { color:var(--text-primary); }
+    .nav a:hover::after { width:100%; }
+
+    .header-actions {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .theme-toggle {
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid var(--glass-border);
+      background:transparent;
+      color:var(--text-primary);
+      font-size:14px;
+      transition:background .25s,transform .25s;
+    }
+
+    .theme-toggle:hover { background:var(--accent-dim); transform:rotate(15deg); }
+
+    .mobile-toggle {
+      display:none;
+      width:38px;
+      height:38px;
+      place-items:center;
+      border-radius:8px;
+      border:1px solid var(--glass-border);
+      background:transparent;
+      color:var(--text-primary);
+      font-size:16px;
+    }
+
+    @media(max-width:820px) {
+      .nav {
+        position:fixed;
+        top:74px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:12px 24px 20px;
+        background:var(--bg-secondary);
+        border-bottom:1px solid var(--border-subtle);
+        transform:translateY(-140%);
+        transition:transform .35s ease;
+      }
+      .nav.open { transform:translateY(0); }
+      .nav a {
+        width:100%;
+        padding:13px 0;
+        border-bottom:1px solid var(--border-subtle);
+      }
+      .nav a:last-child { border-bottom:0; }
+      .nav a::after { display:none; }
+      .mobile-toggle { display:grid; }
+    }
+
+    /* STUDIO HERO */
+
+    .studio-hero {
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      padding:140px 0 80px;
+      text-align:center;
+      background:
+        radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.09),transparent 45%),
+        radial-gradient(ellipse at 15% 80%,rgba(255,255,255,.045),transparent 40%),
+        var(--bg-primary);
+    }
+
+    .studio-hero-content { max-width:900px; margin:auto; }
+
+    .studio-label {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:7px 16px;
+      border:1px solid var(--glass-border);
+      border-radius:50px;
+      background:var(--glass-bg);
+      color:var(--text-secondary);
+      font-family:var(--font-display);
+      font-size:10px;
+      letter-spacing:2px;
+      margin-bottom:34px;
+      backdrop-filter:blur(12px);
+    }
+
+    .studio-label .pulse {
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--text-primary);
+      animation:pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:.35; transform:scale(.75); }
+    }
+
+    .studio-hero h1 {
+      font-family:var(--font-display);
+      font-size:clamp(52px,11vw,130px);
+      line-height:.98;
+      font-weight:900;
+      letter-spacing:-4px;
+      margin-bottom:28px;
+    }
+
+    .studio-hero h1 .outline {
+      color:transparent;
+      -webkit-text-stroke:1.5px var(--text-primary);
+      display:block;
+    }
+
+    .studio-tagline {
+      font-family:var(--font-display);
+      font-size:clamp(14px,2vw,19px);
+      letter-spacing:4px;
+      color:var(--text-secondary);
+      text-transform:uppercase;
+      margin-bottom:24px;
+    }
+
+    .studio-desc {
+      max-width:600px;
+      margin:0 auto 42px;
+      color:var(--text-muted);
+      font-size:15px;
+      line-height:1.9;
+    }
+
+    .studio-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+    }
+
+    .action {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 30px;
+      border-radius:50px;
+      border:1px solid var(--glass-border);
+      font-size:13px;
+      font-weight:600;
+      transition:all .3s ease;
+    }
+
+    .action-solid {
+      background:var(--text-primary);
+      color:var(--bg-primary);
+      border-color:var(--text-primary);
+    }
+
+    .action-solid:hover {
+      background:transparent;
+      color:var(--text-primary);
+      transform:translateY(-3px);
+    }
+
+    .action-line {
+      background:transparent;
+      color:var(--text-primary);
+    }
+
+    .action-line:hover {
+      background:var(--accent-dim);
+      transform:translateY(-3px);
+    }
+
+    .scroll-hint {
+      position:absolute;
+      bottom:36px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      color:var(--text-muted);
+      font-family:var(--font-display);
+      font-size:9px;
+      letter-spacing:2px;
+    }
+
+    .scroll-hint .line {
+      width:1px;
+      height:36px;
+      background:linear-gradient(to bottom,var(--text-muted),transparent);
+      animation:scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%,100% { opacity:.3; transform:scaleY(.6); }
+      50% { opacity:1; transform:scaleY(1); }
+    }
+
+    /* SHARED FOOTER */
+
+    .site-footer {
+      position:relative;
+      z-index:2;
+      padding:0;
+      border-top:1px solid var(--border-subtle);
+      background:var(--bg-secondary);
+    }
+
+    .footer-bar {
+      padding:26px 0;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      font-size:11px;
+      color:var(--text-muted);
+    }
+
+    .footer-bar .logo { font-size:15px; letter-spacing:2px; }
+
+    .footer-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+    }
+
+    .footer-links a {
+      font-size:11px;
+      color:var(--text-muted);
+      transition:color .25s;
+    }
+
+    .footer-links a:hover { color:var(--text-primary); }
+
+    .footer-social {
+      display:flex;
+      gap:10px;
+    }
+
+    .footer-social a {
+      width:32px;
+      height:32px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--border-subtle);
+      border-radius:50%;
+      font-size:12px;
+      color:var(--text-secondary);
+      transition:background .25s,color .25s,transform .25s;
+    }
+
+    .footer-social a:hover {
+      background:var(--text-primary);
+      color:var(--bg-primary);
+      transform:translateY(-2px);
+    }
+
+    .footer-copy {
+      padding:20px 0;
+      border-top:1px solid var(--border-subtle);
+      text-align:center;
+      font-size:10.5px;
+      color:var(--text-muted);
+    }
+
+    @media(max-width:650px) {
+      .footer-bar { justify-content:center; text-align:center; }
+      .studio-hero { padding:120px 0 100px; }
+      .studio-hero h1 { letter-spacing:-2px; }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {
+        scroll-behavior:auto!important;
+        animation:none!important;
+        transition:none!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+<!-- SHARED HEADER LOADED AUTOMATICALLY -->
+<div id="header-loader"></div>
+
+<main>
+  <section class="studio-hero">
+    <div class="container">
+      <div class="studio-hero-content">
+        <div class="studio-label">
+          <span class="pulse"></span> TΛSΛWΛR STUDIO
+        </div>
+
+        <h1>
+          TΛSΛWΛR
+          <span class="outline">Studio</span>
+        </h1>
+
+        <div class="studio-tagline">Create with Creativity</div>
+
+        <p class="studio-desc">
+          We design and build personalized digital experiences for the moments that
+          matter most. Birthdays, anniversaries, weddings and every occasion worth
+          remembering.
+        </p>
+
+        <div class="studio-actions">
+          <a href="/digital-experiences/" class="action action-solid">
+            Explore Experiences <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="/digital-experiences/#contact" class="action action-line">
+            Start a Project
+          </a>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span>SCROLL</span>
+        <div class="line"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SHARED FOOTER LOADED AUTOMATICALLY -->
+<div id="footer-loader"></div>
+
+<script>
+/*
+  SHARED HEADER AND FOOTER SYSTEM
+  This file is the single source of truth.
+  Any page that includes this script automatically
+  receives the same header and footer.
+  Edit the templates below once and every page updates.
+*/
+(function() {
+  "use strict";
+
+  var HEADER_TEMPLATE = ''
+    + '<header class="site-header" id="siteHeader">'
+    + '  <div class="container header-inner">'
+    + '    <a href="/" class="logo">'
+    + '      <i class="fas fa-bolt"></i> TΛSΛWΛR'
+    + '    </a>'
+    + '    <nav class="nav" id="nav">'
+    + '      <a href="/">Home</a>'
+    + '      <a href="/digital-experiences/">Experiences</a>'
+    + '      <a href="/digital-experiences/#how-it-works">Process</a>'
+    + '      <a href="/digital-experiences/#pricing">Pricing</a>'
+    + '      <a href="/digital-experiences/#contact">Contact</a>'
+    + '    </nav>'
+    + '    <div class="header-actions">'
+    + '      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">'
+    + '        <i class="fas fa-moon"></i>'
+    + '      </button>'
+    + '      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">'
+    + '        <i class="fas fa-bars"></i>'
+    + '      </button>'
+    + '    </div>'
+    + '  </div>'
+    + '</header>';
+
+  var FOOTER_TEMPLATE = ''
+    + '<footer class="site-footer">'
+    + '  <div class="container">'
+    + '    <div class="footer-bar">'
+    + '      <a href="/" class="logo"><i class="fas fa-bolt"></i> TΛSΛWΛR</a>'
+    + '      <div class="footer-links">'
+    + '        <a href="/">Home</a>'
+    + '        <a href="/digital-experiences/">Experiences</a>'
+    + '        <a href="/digital-experiences/#pricing">Pricing</a>'
+    + '        <a href="/digital-experiences/#contact">Contact</a>'
+    + '        <a href="#">Privacy</a>'
+    + '        <a href="#">Terms</a>'
+    + '      </div>'
+    + '      <div class="footer-social">'
+    + '        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>'
+    + '        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>'
+    + '        <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>'
+    + '        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>'
+    + '      </div>'
+    + '    </div>'
+    + '    <div class="footer-copy">'
+    + '      &copy; 2026 TΛSΛWΛR Studio. All rights reserved.'
+    + '    </div>'
+    + '  </div>'
+    + '</footer>';
+
+  function injectSharedParts() {
+    var headerLoader = document.getElementById("header-loader");
+    var footerLoader = document.getElementById("footer-loader");
+    if (headerLoader) headerLoader.innerHTML = HEADER_TEMPLATE;
+    if (footerLoader) footerLoader.innerHTML = FOOTER_TEMPLATE;
+
+    /* THEME */
+    var savedTheme = localStorage.getItem("tasawar-theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    var themeToggle = document.getElementById("themeToggle");
+    var themeIcon = themeToggle.querySelector("i");
+
+    function updateThemeIcon() {
+      var t = document.documentElement.getAttribute("data-theme");
+      themeIcon.className = t === "light" ? "fas fa-sun" : "fas fa-moon";
+    }
+    updateThemeIcon();
+
+    themeToggle.addEventListener("click", function() {
+      var cur = document.documentElement.getAttribute("data-theme");
+      var next = cur === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("tasawar-theme", next);
+      updateThemeIcon();
+    });
+
+    /* MOBILE NAV */
+    var nav = document.getElementById("nav");
+    var mobileToggle = document.getElementById("mobileToggle");
+
+    mobileToggle.addEventListener("click", function() {
+      nav.classList.toggle("open");
+      var icon = mobileToggle.querySelector("i");
+      icon.className = nav.classList.contains("open") ? "fas fa-times" : "fas fa-bars";
+    });
+
+    nav.querySelectorAll("a").forEach(function(a) {
+      a.addEventListener("click", function() {
+        nav.classList.remove("open");
+        mobileToggle.querySelector("i").className = "fas fa-bars";
+      });
+    });
+
+    /* STICKY HEADER SHADOW */
+    var header = document.getElementById("siteHeader");
+    window.addEventListener("scroll", function() {
+      header.style.boxShadow = window.scrollY > 20
+        ? "0 10px 30px rgba(0,0,0,.35)"
+        : "none";
+    }, { passive: true });
+  }
+
+  /* PARTICLES */
+  var canvas = document.getElementById("particles-canvas");
+  var ctx = canvas ? canvas.getContext("2d") : null;
+  var particles = [];
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function resizeCanvas() {
+    if (!canvas) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = innerWidth * dpr;
+    canvas.height = innerHeight * dpr;
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    particles = Array.from({ length: 50 }, function() {
+      return {
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        vx: (Math.random() - .5) * .25,
+        vy: (Math.random() - .5) * .25,
+        r: Math.random() * 1.2 + .3
+      };
+    });
+  }
+
+  function drawParticles() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    var light = document.documentElement.dataset.theme === "light";
+    var color = light ? "0,0,0" : "255,255,255";
+
+    particles.forEach(function(p, i) {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > innerWidth) p.vx *= -1;
+      if (p.y < 0 || p.y > innerHeight) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(" + color + ",.35)";
+      ctx.fill();
+
+      for (var j = i + 1; j < particles.length; j++) {
+        var q = particles[j];
+        var dx = p.x - q.x, dy = p.y - q.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+
+        if (d < 110) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = "rgba(" + color + "," + (.12 * (1 - d / 110)) + ")";
+          ctx.lineWidth = .5;
+          ctx.stroke();
+        }
+      }
+    });
+
+    requestAnimationFrame(drawParticles);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    injectSharedParts();
+    if (canvas) {
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      if (!reducedMotion) drawParticles();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
