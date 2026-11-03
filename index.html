@@ -8,7 +8,7 @@
   <meta name="description" content="TΛSΛWΛR Studio creates personalized digital experiences for birthdays, anniversaries, weddings and every moment worth remembering.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tasawar-studio.github.io/">
-  
+
   <!-- FAVICON (Browser tab / taskbar only) -->
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
@@ -289,54 +289,134 @@
       display:block;
     }
 
-    /* SHARED FOOTER */
+    /* CORPORATE FOOTER */
 
     .site-footer {
       position:relative;
       z-index:2;
-      padding:0;
+      padding:70px 0 0;
       border-top:1px solid var(--border-subtle);
       background:var(--bg-secondary);
     }
 
-    .footer-bar {
+    .footer-top {
+      display:grid;
+      grid-template-columns:1.8fr 1fr 1fr 1.2fr;
+      gap:48px;
+      padding-bottom:56px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom:20px;
+      font-size:24px;
+    }
+
+    .footer-brand p {
+      color:var(--text-muted);
+      font-size:13px;
+      line-height:1.85;
+      max-width:320px;
+    }
+
+    .footer-col h4 {
+      font-family:var(--font-display);
+      font-size:11px;
+      letter-spacing:2px;
+      margin-bottom:22px;
+      color:var(--text-primary);
+      text-transform:uppercase;
+    }
+
+    .footer-col ul {
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .footer-col a {
+      font-size:13px;
+      color:var(--text-muted);
+      transition:color .25s,padding-left .25s;
+      display:inline-block;
+    }
+
+    .footer-col a:hover {
+      color:var(--text-primary);
+      padding-left:4px;
+    }
+
+    .footer-contact-list {
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .footer-contact-list li {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:13px;
+      color:var(--text-muted);
+    }
+
+    .footer-contact-list li i {
+      width:32px;
+      height:32px;
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      background:var(--bg-card);
+      border:1px solid var(--border-subtle);
+      font-size:13px;
+      color:var(--text-secondary);
+      flex-shrink:0;
+    }
+
+    .footer-contact-list a {
+      color:var(--text-muted);
+      transition:color .25s;
+    }
+
+    .footer-contact-list a:hover { color:var(--text-primary); }
+
+    .footer-bottom {
+      border-top:1px solid var(--border-subtle);
       padding:26px 0;
       display:flex;
       flex-wrap:wrap;
       justify-content:space-between;
       align-items:center;
       gap:16px;
-      font-size:11px;
+      font-size:12px;
       color:var(--text-muted);
     }
 
-    .footer-bar .logo { font-size:18px; letter-spacing:2px; gap:12px; }
-    .footer-bar .logo-img { width:38px; height:38px; }
-
-    .footer-links {
+    .footer-bottom-links {
       display:flex;
       flex-wrap:wrap;
-      gap:22px;
+      gap:24px;
     }
 
-    .footer-links a {
-      font-size:11px;
+    .footer-bottom-links a {
       color:var(--text-muted);
       transition:color .25s;
     }
 
-    .footer-links a:hover { color:var(--text-primary); }
+    .footer-bottom-links a:hover { color:var(--text-primary); }
 
-    .footer-copy {
-      padding:20px 0;
-      border-top:1px solid var(--border-subtle);
-      text-align:center;
-      font-size:10.5px;
-      color:var(--text-muted);
+    @media(max-width:1024px) {
+      .footer-top {
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+      }
     }
 
     @media(max-width:650px) {
-      .footer-bar { justify-content:center; text-align:center; }
+      .site-footer { padding:50px 0 0; }
+      .footer-top { grid-template-columns:1fr; gap:36px; padding-bottom:40px; }
+      .footer-bottom { justify-content:center; text-align:center; }
       .studio-hero { padding:120px 0 100px; }
       .studio-hero h1 { letter-spacing:-2px; }
       .logo { font-size:18px; }
@@ -390,6 +470,12 @@
   // logo.ico    -> visible logo image inside header & footer
   var LOGO_ICON_SRC = "https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico";
 
+  // Contact links (number never shown on page)
+  var WA_CHAT    = "https://wa.me/923047467957";
+  var WA_CHANNEL = "https://whatsapp.com/channel/0029Vb9Dm5AIyPtKhdoLde0C";
+  var TIKTOK     = "https://www.tiktok.com/@tasawar_studio";
+  var X_LINK     = "https://x.com/TasawarStudio";
+
   var HEADER_TEMPLATE = ''
     + '<header class="site-header" id="siteHeader">'
     + '  <div class="container header-inner">'
@@ -417,20 +503,58 @@
   var FOOTER_TEMPLATE = ''
     + '<footer class="site-footer">'
     + '  <div class="container">'
-    + '    <div class="footer-bar">'
-    + '      <a href="/" class="logo">'
-    + '        <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
-    + '        <span>TΛSΛWΛR</span>'
-    + '      </a>'
-    + '      <div class="footer-links">'
-    + '        <a href="/">Home</a>'
-    + '        <a href="/digital-experiences/">Experiences</a>'
-    + '        <a href="/digital-experiences/#pricing">Pricing</a>'
-    + '        <a href="/digital-experiences/#contact">Contact</a>'
+    + '    <div class="footer-top">'
+
+    // Brand Column (icons removed)
+    + '      <div class="footer-brand">'
+    + '        <a href="/" class="logo">'
+    + '          <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
+    + '          <span>TΛSΛWΛR</span>'
+    + '        </a>'
+    + '        <p>We design and build personalized digital experiences for the moments that matter most. Birthdays, anniversaries, weddings and every occasion worth remembering.</p>'
     + '      </div>'
+
+    // Company Column
+    + '      <div class="footer-col">'
+    + '        <h4>Company</h4>'
+    + '        <ul>'
+    + '          <li><a href="/">Home</a></li>'
+    + '          <li><a href="/digital-experiences/">Experiences</a></li>'
+    + '          <li><a href="/digital-experiences/#pricing">Pricing</a></li>'
+    + '          <li><a href="/digital-experiences/#contact">Contact</a></li>'
+    + '        </ul>'
+    + '      </div>'
+
+    // Services Column
+    + '      <div class="footer-col">'
+    + '        <h4>Services</h4>'
+    + '        <ul>'
+    + '          <li><a href="/digital-experiences/">Birthday Websites</a></li>'
+    + '          <li><a href="/digital-experiences/">Anniversary Surprises</a></li>'
+    + '          <li><a href="/digital-experiences/">Wedding Invitations</a></li>'
+    + '          <li><a href="/digital-experiences/">Greeting Websites</a></li>'
+    + '        </ul>'
+    + '      </div>'
+
+    // Contact Column
+    + '      <div class="footer-col">'
+    + '        <h4>Get in Touch</h4>'
+    + '        <ul class="footer-contact-list">'
+    + '          <li><i class="fab fa-whatsapp"></i> <a href="' + WA_CHAT + '" target="_blank" rel="noopener">WhatsApp Chat</a></li>'
+    + '          <li><i class="fas fa-bullhorn"></i> <a href="' + WA_CHANNEL + '" target="_blank" rel="noopener">WhatsApp Channel</a></li>'
+    + '          <li><i class="fab fa-tiktok"></i> <a href="' + TIKTOK + '" target="_blank" rel="noopener">TikTok</a></li>'
+    + '          <li><i class="fab fa-x-twitter"></i> <a href="' + X_LINK + '" target="_blank" rel="noopener">X (Twitter)</a></li>'
+    + '        </ul>'
+    + '      </div>'
+
     + '    </div>'
-    + '    <div class="footer-copy">'
-    + '      &copy; 2026 TΛSΛWΛR Studio. All rights reserved.'
+
+    + '    <div class="footer-bottom">'
+    + '      <span>&copy; 2026 TΛSΛWΛR Studio. All rights reserved.</span>'
+    + '      <div class="footer-bottom-links">'
+    + '        <a href="#">Privacy Policy</a>'
+    + '        <a href="#">Terms of Service</a>'
+    + '      </div>'
     + '    </div>'
     + '  </div>'
     + '</footer>';
