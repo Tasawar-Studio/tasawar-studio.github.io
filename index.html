@@ -121,7 +121,7 @@
     .logo {
       font-family:var(--font-display);
       font-weight:900;
-      font-size:20px;
+      font-size:22px;
       letter-spacing:3px;
       display:inline-flex;
       align-items:center;
@@ -310,7 +310,7 @@
       color:var(--text-muted);
     }
 
-    .footer-bar .logo { font-size:16px; letter-spacing:2px; gap:12px; }
+    .footer-bar .logo { font-size:18px; letter-spacing:2px; gap:12px; }
     .footer-bar .logo-img { width:38px; height:38px; }
 
     .footer-links {
@@ -339,6 +339,7 @@
       .footer-bar { justify-content:center; text-align:center; }
       .studio-hero { padding:120px 0 100px; }
       .studio-hero h1 { letter-spacing:-2px; }
+      .logo { font-size:18px; }
       .logo-img { width:40px; height:40px; }
     }
 
@@ -385,15 +386,16 @@
 (function() {
   "use strict";
 
-  // favicon.ico -> browser tab / taskbar icon only (declared in <head>)
-  // logo.ico    -> visible logo inside header & footer
+  // favicon.ico -> browser tab / taskbar icon only
+  // logo.ico    -> visible logo image inside header & footer
   var LOGO_ICON_SRC = "https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/logo.ico";
 
   var HEADER_TEMPLATE = ''
     + '<header class="site-header" id="siteHeader">'
     + '  <div class="container header-inner">'
     + '    <a href="/" class="logo">'
-    + '      <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img"> TΛSΛWΛR'
+    + '      <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
+    + '      <span>TΛSΛWΛR</span>'
     + '    </a>'
     + '    <nav class="nav" id="nav">'
     + '      <a href="/">Home</a>'
@@ -416,7 +418,10 @@
     + '<footer class="site-footer">'
     + '  <div class="container">'
     + '    <div class="footer-bar">'
-    + '      <a href="/" class="logo"><img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img"> TΛSΛWΛR</a>'
+    + '      <a href="/" class="logo">'
+    + '        <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img">'
+    + '        <span>TΛSΛWΛR</span>'
+    + '      </a>'
     + '      <div class="footer-links">'
     + '        <a href="/">Home</a>'
     + '        <a href="/digital-experiences/">Experiences</a>'
