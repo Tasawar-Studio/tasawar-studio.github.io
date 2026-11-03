@@ -7,18 +7,15 @@
   <title>TΛSΛWΛR Studio</title>
   <meta name="description" content="TΛSΛWΛR Studio creates personalized digital experiences for birthdays, anniversaries, weddings and every moment worth remembering.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://tasawar.github.io/">
-  
-  <!-- UPDATED FAVICON LINK -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/favicon.ico">
-  
+  <link rel="canonical" href="https://tasawar-studio.github.io/">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico">
   <meta name="theme-color" content="#000000">
 
   <meta property="og:title" content="TΛSΛWΛR Studio">
   <meta property="og:description" content="Create with Creativity.">
-  <meta property="og:image" content="https://tasawar.github.io/image.jpg">
-  <meta property="og:url" content="https://tasawar.github.io/">
+  <meta property="og:image" content="https://tasawar-studio.github.io/image.jpg">
+  <meta property="og:url" content="https://tasawar-studio.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="TΛSΛWΛR Studio">
   <meta name="twitter:card" content="summary_large_image">
@@ -45,6 +42,7 @@
       --font-sans:'Inter',sans-serif;
       --font-display:'Orbitron',sans-serif;
       --shadow-color:rgba(0,0,0,.6);
+      --logo-icon-filter:invert(0);
     }
 
     [data-theme="light"] {
@@ -59,6 +57,7 @@
       --glass-bg:rgba(255,255,255,.75);
       --glass-border:rgba(0,0,0,.12);
       --shadow-color:rgba(0,0,0,.13);
+      --logo-icon-filter:invert(1);
     }
 
     html { scroll-behavior:smooth; scroll-padding-top:100px; }
@@ -102,7 +101,7 @@
       left:0;
       right:0;
       z-index:1000;
-      padding:18px 0;
+      padding:14px 0;
       background:var(--glass-bg);
       border-bottom:1px solid var(--border-subtle);
       backdrop-filter:blur(14px);
@@ -120,14 +119,21 @@
     .logo {
       font-family:var(--font-display);
       font-weight:900;
-      font-size:19px;
+      font-size:20px;
       letter-spacing:3px;
       display:inline-flex;
       align-items:center;
-      gap:9px;
+      gap:12px;
     }
 
-    .logo i { font-size:15px; }
+    .logo-img {
+      width:46px;
+      height:46px;
+      object-fit:contain;
+      display:inline-block;
+      filter:var(--logo-icon-filter);
+      transition:filter .3s ease;
+    }
 
     .nav {
       display:flex;
@@ -302,7 +308,8 @@
       color:var(--text-muted);
     }
 
-    .footer-bar .logo { font-size:15px; letter-spacing:2px; }
+    .footer-bar .logo { font-size:16px; letter-spacing:2px; gap:12px; }
+    .footer-bar .logo-img { width:38px; height:38px; }
 
     .footer-links {
       display:flex;
@@ -330,6 +337,7 @@
       .footer-bar { justify-content:center; text-align:center; }
       .studio-hero { padding:120px 0 100px; }
       .studio-hero h1 { letter-spacing:-2px; }
+      .logo-img { width:40px; height:40px; }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -371,19 +379,17 @@
 <script>
 /*
   SHARED HEADER AND FOOTER SYSTEM
-  This file is the single source of truth.
-  Any page that includes this script automatically
-  receives the same header and footer.
-  Edit the templates below once and every page updates.
 */
 (function() {
   "use strict";
+
+  var LOGO_ICON_SRC = "https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/favicon.ico";
 
   var HEADER_TEMPLATE = ''
     + '<header class="site-header" id="siteHeader">'
     + '  <div class="container header-inner">'
     + '    <a href="/" class="logo">'
-    + '      <i class="fas fa-bolt"></i> TΛSΛWΛR'
+    + '      <img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img"> TΛSΛWΛR'
     + '    </a>'
     + '    <nav class="nav" id="nav">'
     + '      <a href="/">Home</a>'
@@ -406,7 +412,7 @@
     + '<footer class="site-footer">'
     + '  <div class="container">'
     + '    <div class="footer-bar">'
-    + '      <a href="/" class="logo"><i class="fas fa-bolt"></i> TΛSΛWΛR</a>'
+    + '      <a href="/" class="logo"><img src="' + LOGO_ICON_SRC + '" alt="TΛSΛWΛR" class="logo-img"> TΛSΛWΛR</a>'
     + '      <div class="footer-links">'
     + '        <a href="/">Home</a>'
     + '        <a href="/digital-experiences/">Experiences</a>'
