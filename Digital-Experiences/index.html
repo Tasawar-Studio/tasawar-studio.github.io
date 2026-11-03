@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Digital Experiences</title>
-  <meta name="description" content="Explore 45+ personalized digital experiences by TΛSΛWΛR Studio — birthdays, weddings, interactive stories, brand showcases and more.">
+
+  <title>TΛSΛWΛR Studio · Digital Experiences</title>
+  <meta name="description" content="TΛSΛWΛR Studio creates personalized digital experiences for birthdays, anniversaries, weddings and every moment worth remembering.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tasawar-studio.github.io/Digital-Experiences/">
 
@@ -15,7 +16,7 @@
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Digital Experiences · TΛSΛWΛR Studio">
-  <meta property="og:description" content="45+ personalized digital experiences — birthdays, weddings, interactive stories, brand showcases.">
+  <meta property="og:description" content="Create with Creativity. We build personalized digital experiences for the moments that matter most.">
   <meta property="og:image" content="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +27,7 @@
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Digital Experiences · TΛSΛWΛR Studio">
-  <meta name="twitter:description" content="45+ personalized digital experiences — birthdays, weddings, interactive stories, brand showcases.">
+  <meta name="twitter:description" content="Create with Creativity. We build personalized digital experiences for the moments that matter most.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/preview.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,9 +53,6 @@
       --font-display:'Orbitron',sans-serif;
       --shadow-color:rgba(0,0,0,.6);
       --logo-icon-filter:invert(0);
-      --card-gradient-start:rgba(255,255,255,.06);
-      --card-gradient-end:rgba(255,255,255,.01);
-      --icon-glow:rgba(255,255,255,.08);
     }
 
     [data-theme="light"] {
@@ -70,9 +68,6 @@
       --glass-border:rgba(0,0,0,.12);
       --shadow-color:rgba(0,0,0,.13);
       --logo-icon-filter:invert(1);
-      --card-gradient-start:rgba(0,0,0,.03);
-      --card-gradient-end:rgba(0,0,0,.01);
-      --icon-glow:rgba(0,0,0,.04);
     }
 
     html { scroll-behavior:smooth; scroll-padding-top:100px; }
@@ -108,7 +103,7 @@
       pointer-events:none;
     }
 
-    /* HEADER (same as home) */
+    /* SHARED HEADER */
 
     .site-header {
       position:fixed;
@@ -239,206 +234,216 @@
       .mobile-toggle { display:grid; }
     }
 
-    /* PAGE HERO */
+    /* SERVICES SECTION */
 
-    .page-hero {
-      padding:160px 0 50px;
-      text-align:center;
-      background:
-        radial-gradient(ellipse at 50% 20%, rgba(255,255,255,.07), transparent 60%),
-        var(--bg-primary);
+    .services-section {
+      padding:160px 0 80px;
       position:relative;
       z-index:2;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.04), transparent 50%),
+        var(--bg-primary);
+      border-top:1px solid var(--border-subtle);
     }
 
-    .page-hero .eyebrow {
+    .services-header {
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .services-header .studio-title {
       font-family:var(--font-display);
-      font-size:11px;
-      letter-spacing:4px;
+      font-size:clamp(14px,2.4vw,20px);
+      letter-spacing:5px;
       color:var(--text-muted);
       text-transform:uppercase;
-      margin-bottom:20px;
+      margin-bottom:22px;
+      font-weight:600;
     }
 
-    .page-hero h1 {
+    .services-header .studio-title strong {
+      color:var(--text-primary);
+      font-weight:800;
+    }
+
+    .services-header .eyebrow {
       font-family:var(--font-display);
-      font-size:clamp(40px,7vw,80px);
-      line-height:1.1;
-      font-weight:900;
-      letter-spacing:-2px;
+      font-size:11px;
+      letter-spacing:5px;
+      color:var(--text-muted);
+      text-transform:uppercase;
       margin-bottom:18px;
     }
 
-    .page-hero .subhead {
-      font-size:clamp(15px,2vw,19px);
+    .services-header h2 {
+      font-family:var(--font-display);
+      font-size:clamp(36px,6vw,64px);
+      font-weight:900;
+      letter-spacing:-2px;
+      line-height:1.05;
+      margin-bottom:16px;
+    }
+
+    .services-header p {
+      font-size:clamp(15px,2vw,18px);
       color:var(--text-secondary);
-      max-width:700px;
+      max-width:720px;
       margin:0 auto;
       letter-spacing:.3px;
     }
 
-    .page-hero .intro-note {
-      font-size:15px;
-      color:var(--text-muted);
-      max-width:640px;
-      margin:18px auto 0;
+    /* CATEGORY BLOCK */
+
+    .service-category {
+      margin-bottom:70px;
     }
 
-    /* SERVICE CARDS with real images */
-
-    .services-wrap {
-      padding:20px 0 60px;
-      position:relative;
-      z-index:2;
+    .service-category:last-child {
+      margin-bottom:0;
     }
 
-    .category-block {
-      margin-bottom:60px;
-    }
-
-    .category-head {
+    .category-bar {
       display:flex;
       align-items:center;
       gap:16px;
-      margin-bottom:26px;
-      border-bottom:1px solid var(--border-subtle);
+      margin-bottom:28px;
       padding-bottom:14px;
+      border-bottom:1px solid var(--border-subtle);
     }
 
-    .category-head .cat-index {
+    .category-bar .cat-num {
       font-family:var(--font-display);
-      font-size:14px;
+      font-size:13px;
       font-weight:700;
       letter-spacing:1px;
       color:var(--text-muted);
-      min-width:36px;
+      min-width:40px;
     }
 
-    .category-head h2 {
+    .category-bar h3 {
       font-family:var(--font-display);
-      font-size:clamp(20px,2.6vw,28px);
+      font-size:clamp(19px,2.4vw,26px);
       font-weight:700;
-      letter-spacing:-.5px;
+      letter-spacing:-.4px;
       color:var(--text-primary);
       text-transform:uppercase;
     }
 
-    .services-grid {
+    /* SERVICE GRID */
+
+    .service-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
-      gap:16px;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      gap:24px;
       list-style:none;
     }
 
-    /* CARD DESIGN with image */
-    .service-card {
-      background: linear-gradient(145deg, var(--card-gradient-start), var(--card-gradient-end));
+    /* LARGE IMAGE CARD */
+
+    .svc-card {
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 0;
+      border-radius: 22px;
+      overflow: hidden;
       display: flex;
-      align-items: stretch;
-      gap: 0;
-      transition: all .3s ease;
+      flex-direction: column;
+      transition: all .4s ease;
       backdrop-filter: blur(6px);
       position: relative;
-      overflow: hidden;
-      min-height: 100px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
     }
 
-    .service-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 30%, var(--icon-glow), transparent 70%);
-      opacity: 0;
-      transition: opacity .3s;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .service-card:hover {
+    .svc-card:hover {
       border-color: var(--glass-border);
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 12px 28px -8px var(--shadow-color);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -12px var(--shadow-color);
     }
 
-    .service-card:hover::before {
-      opacity: 1;
-    }
+    /* IMAGE AREA */
 
-    /* IMAGE WRAPPER */
-    .service-img-wrap {
-      width: 100px;
-      flex-shrink: 0;
+    .svc-img-wrap {
+      width: 100%;
+      height: 200px;
       overflow: hidden;
       position: relative;
       background: var(--bg-secondary);
-      border-radius: 18px 0 0 18px;
     }
 
-    .service-img-wrap img {
+    .svc-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .4s ease;
+      transition: transform .5s ease;
       display: block;
     }
 
-    .service-card:hover .service-img-wrap img {
+    .svc-card:hover .svc-img-wrap img {
       transform: scale(1.08);
     }
 
-    /* TEXT */
-    .service-content {
+    .svc-img-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.35), transparent 50%);
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .svc-img-wrap::after {
+      background: linear-gradient(to top, rgba(0,0,0,.15), transparent 50%);
+    }
+
+    /* TEXT AREA */
+
+    .svc-info {
+      padding: 18px 22px 22px;
+      display: flex;
+      flex-direction: column;
       flex: 1;
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 16px 18px;
     }
 
-    .service-content .service-num {
+    .svc-info .svc-num {
       font-family: var(--font-display);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: var(--text-muted);
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       display: block;
     }
 
-    .service-content .service-name {
-      font-size: 14px;
-      font-weight: 500;
+    .svc-info .svc-name {
+      font-size: 16px;
+      font-weight: 600;
       color: var(--text-secondary);
-      line-height: 1.4;
+      line-height: 1.45;
       transition: color .3s;
     }
 
-    .service-card:hover .service-content .service-name {
+    .svc-card:hover .svc-info .svc-name {
       color: var(--text-primary);
     }
 
     /* CLOSING NOTE */
-    .closing-note {
-      margin-top:36px;
-      border-top:1px solid var(--border-subtle);
-      padding-top:30px;
+
+    .services-closing {
+      margin-top:60px;
       text-align:center;
+      padding-top:36px;
+      border-top:1px solid var(--border-subtle);
       font-size:14px;
       color:var(--text-muted);
-      letter-spacing:.4px;
+      letter-spacing:.5px;
     }
 
-    .closing-note strong {
+    .services-closing strong {
       color:var(--text-secondary);
-      font-weight:500;
+      font-weight:600;
     }
 
-    /* FOOTER (same as home) */
+    /* CORPORATE FOOTER */
 
     .site-footer {
       position:relative;
@@ -563,13 +568,12 @@
       .site-footer { padding:50px 0 0; }
       .footer-top { grid-template-columns:1fr; gap:36px; padding-bottom:40px; }
       .footer-bottom { justify-content:center; text-align:center; }
-      .logo { font-size:18px; }
-      .logo-img { width:40px; height:40px; }
-      .page-hero { padding:130px 0 30px; }
-      .services-grid { grid-template-columns:1fr; }
-      .service-img-wrap { width: 80px; }
-      .service-content { padding: 14px 16px; }
-      .service-content .service-name { font-size: 13px; }
+      .services-section { padding:140px 0 60px; }
+      .services-header { margin-bottom:50px; }
+      .service-grid { grid-template-columns:1fr; gap:18px; }
+      .svc-img-wrap { height: 180px; }
+      .svc-info { padding: 16px 18px 18px; }
+      .svc-info .svc-name { font-size: 15px; }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -585,7 +589,7 @@
 <body>
 <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-<!-- HEADER TEMPLATE (same as home) -->
+<!-- HEADER TEMPLATE -->
 <template id="header-template">
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
@@ -611,7 +615,7 @@
   </header>
 </template>
 
-<!-- FOOTER TEMPLATE (same as home) -->
+<!-- FOOTER TEMPLATE -->
 <template id="footer-template">
   <footer class="site-footer">
     <div class="container">
@@ -666,271 +670,268 @@
 <div id="site-header"></div>
 
 <main>
-  <!-- PAGE HERO -->
-  <section class="page-hero">
+  <!-- SERVICES SECTION -->
+  <section class="services-section" id="services">
     <div class="container">
-      <div class="eyebrow">TΛSΛWΛR STUDIO · DIGITAL EXPERIENCES</div>
-      <h1>What We Do</h1>
-      <p class="subhead">Creative Digital Experiences &amp; Interactive Creations</p>
-      <p class="intro-note">TΛSΛWΛR Studio mein hum ye tamam kaam karenge — from personal milestones to brand activations, all crafted with creativity and precision.</p>
-    </div>
-  </section>
 
-  <!-- SERVICE CARDS with real images -->
-  <section class="services-wrap">
-    <div class="container">
+      <div class="services-header">
+        <div class="studio-title"><strong>TΛSΛWΛR STUDIO</strong> · DIGITAL EXPERIENCES</div>
+        <div class="eyebrow">What We Do</div>
+        <h2>Creative Digital Experiences<br>&amp; Interactive Creations</h2>
+        <p>We craft personalized digital experiences for every celebration, milestone and brand story.</p>
+      </div>
 
       <!-- 1. Celebration Experiences -->
-      <div class="category-block" id="celebration">
-        <div class="category-head">
-          <span class="cat-index">01</span>
-          <h2>Celebration Experiences</h2>
+      <div class="service-category" id="celebration">
+        <div class="category-bar">
+          <span class="cat-num">01</span>
+          <h3>Celebration Experiences</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&q=80&auto=format&fit=crop" alt="Birthday Website" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">1</span><span class="service-name">Birthday Websites</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80&auto=format&fit=crop" alt="Birthday" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">1</span><span class="svc-name">Birthday Websites</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&q=80&auto=format&fit=crop" alt="Anniversary Surprise" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">2</span><span class="service-name">Anniversary Surprises</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600&q=80&auto=format&fit=crop" alt="Anniversary" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">2</span><span class="svc-name">Anniversary Surprises</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&q=80&auto=format&fit=crop" alt="Valentine" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">3</span><span class="service-name">Valentine's Day Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&q=80&auto=format&fit=crop" alt="Valentine" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">3</span><span class="svc-name">Valentine's Day Experiences</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=200&q=80&auto=format&fit=crop" alt="Graduation" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">4</span><span class="service-name">Graduation Celebrations</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80&auto=format&fit=crop" alt="Graduation" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">4</span><span class="svc-name">Graduation Celebrations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80&auto=format&fit=crop" alt="Wedding" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">5</span><span class="service-name">Wedding Invitations</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80&auto=format&fit=crop" alt="Wedding" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">5</span><span class="svc-name">Wedding Invitations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&q=80&auto=format&fit=crop" alt="Engagement" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">6</span><span class="service-name">Engagement Announcements</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80&auto=format&fit=crop" alt="Engagement" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">6</span><span class="svc-name">Engagement Announcements</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=200&q=80&auto=format&fit=crop" alt="Baby Shower" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">7</span><span class="service-name">Baby Shower Invitations</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80&auto=format&fit=crop" alt="Baby Shower" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">7</span><span class="svc-name">Baby Shower Invitations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1496843916299-590492c751f4?w=200&q=80&auto=format&fit=crop" alt="Congratulations" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">8</span><span class="service-name">Congratulations Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1496843916299-590492c751f4?w=600&q=80&auto=format&fit=crop" alt="Congratulations" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">8</span><span class="svc-name">Congratulations Experiences</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 2. Personal Experiences -->
-      <div class="category-block" id="personal">
-        <div class="category-head">
-          <span class="cat-index">02</span>
-          <h2>Personal Experiences</h2>
+      <div class="service-category" id="personal">
+        <div class="category-bar">
+          <span class="cat-num">02</span>
+          <h3>Personal Experiences</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Greeting" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">9</span><span class="service-name">Personalized Greeting Websites</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80&auto=format&fit=crop" alt="Greeting" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">9</span><span class="svc-name">Personalized Greeting Websites</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&q=80&auto=format&fit=crop" alt="Love Story" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">10</span><span class="service-name">Digital Love Stories</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80&auto=format&fit=crop" alt="Love Story" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">10</span><span class="svc-name">Digital Love Stories</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&q=80&auto=format&fit=crop" alt="Friendship" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">11</span><span class="service-name">Friendship Websites</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&auto=format&fit=crop" alt="Friendship" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">11</span><span class="svc-name">Friendship Websites</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Memory" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">12</span><span class="service-name">Memory Websites</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80&auto=format&fit=crop" alt="Memory" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">12</span><span class="svc-name">Memory Websites</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Timeline" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">13</span><span class="service-name">Personal Timeline Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&q=80&auto=format&fit=crop" alt="Timeline" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">13</span><span class="svc-name">Personal Timeline Experiences</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=200&q=80&auto=format&fit=crop" alt="Scrapbook" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">14</span><span class="service-name">Digital Scrapbooks</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&q=80&auto=format&fit=crop" alt="Scrapbook" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">14</span><span class="svc-name">Digital Scrapbooks</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Thank You" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">15</span><span class="service-name">Personalized Thank You Pages</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&auto=format&fit=crop" alt="Thank You" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">15</span><span class="svc-name">Personalized Thank You Pages</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 3. Event Experiences -->
-      <div class="category-block" id="event">
-        <div class="category-head">
-          <span class="cat-index">03</span>
-          <h2>Event Experiences</h2>
+      <div class="service-category" id="event">
+        <div class="category-bar">
+          <span class="cat-num">03</span>
+          <h3>Event Experiences</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Event Invitation" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">16</span><span class="service-name">Digital Event Invitations</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80&auto=format&fit=crop" alt="Event Invitation" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">16</span><span class="svc-name">Digital Event Invitations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Landing Page" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">17</span><span class="service-name">Event Landing Pages</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80&auto=format&fit=crop" alt="Landing Page" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">17</span><span class="svc-name">Event Landing Pages</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=200&q=80&auto=format&fit=crop" alt="RSVP" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">18</span><span class="service-name">Interactive RSVP Websites</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80&auto=format&fit=crop" alt="RSVP" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">18</span><span class="svc-name">Interactive RSVP Websites</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=200&q=80&auto=format&fit=crop" alt="Countdown" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">19</span><span class="service-name">Event Countdown Pages</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop" alt="Countdown" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">19</span><span class="svc-name">Event Countdown Pages</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=200&q=80&auto=format&fit=crop" alt="Event Program" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">20</span><span class="service-name">Digital Event Programs</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80&auto=format&fit=crop" alt="Event Program" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">20</span><span class="svc-name">Digital Event Programs</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=200&q=80&auto=format&fit=crop" alt="Conference" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">21</span><span class="service-name">Conference &amp; Party Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&q=80&auto=format&fit=crop" alt="Conference" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">21</span><span class="svc-name">Conference &amp; Party Experiences</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 4. Interactive Experiences -->
-      <div class="category-block" id="interactive">
-        <div class="category-head">
-          <span class="cat-index">04</span>
-          <h2>Interactive Experiences</h2>
+      <div class="service-category" id="interactive">
+        <div class="category-bar">
+          <span class="cat-num">04</span>
+          <h3>Interactive Experiences</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&q=80&auto=format&fit=crop" alt="Storytelling" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">22</span><span class="service-name">Interactive Storytelling</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=80&auto=format&fit=crop" alt="Storytelling" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">22</span><span class="svc-name">Interactive Storytelling</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Mini Game" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">23</span><span class="service-name">Mini Web Games</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80&auto=format&fit=crop" alt="Mini Game" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">23</span><span class="svc-name">Mini Web Games</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=200&q=80&auto=format&fit=crop" alt="Quiz" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">24</span><span class="service-name">Interactive Quizzes</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=600&q=80&auto=format&fit=crop" alt="Quiz" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">24</span><span class="svc-name">Interactive Quizzes</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=200&q=80&auto=format&fit=crop" alt="Personality Test" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">25</span><span class="service-name">Personality Tests</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&auto=format&fit=crop" alt="Personality Test" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">25</span><span class="svc-name">Personality Tests</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80&auto=format&fit=crop" alt="Interactive Timeline" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">26</span><span class="service-name">Interactive Timelines</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&q=80&auto=format&fit=crop" alt="Interactive Timeline" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">26</span><span class="svc-name">Interactive Timelines</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=200&q=80&auto=format&fit=crop" alt="Puzzle" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">27</span><span class="service-name">Puzzle Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80&auto=format&fit=crop" alt="Puzzle" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">27</span><span class="svc-name">Puzzle Experiences</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Web Experiment" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">28</span><span class="service-name">Creative Web Experiments</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80&auto=format&fit=crop" alt="Web Experiment" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">28</span><span class="svc-name">Creative Web Experiments</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 5. Creative Digital Design -->
-      <div class="category-block" id="design">
-        <div class="category-head">
-          <span class="cat-index">05</span>
-          <h2>Creative Digital Design</h2>
+      <div class="service-category" id="design">
+        <div class="category-bar">
+          <span class="cat-num">05</span>
+          <h3>Creative Digital Design</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Motion Graphics" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">29</span><span class="service-name">Motion Graphics</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80&auto=format&fit=crop" alt="Motion Graphics" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">29</span><span class="svc-name">Motion Graphics</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=200&q=80&auto=format&fit=crop" alt="3D Web" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">30</span><span class="service-name">3D Web Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80&auto=format&fit=crop" alt="3D Web" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">30</span><span class="svc-name">3D Web Experiences</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Animated Presentation" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">31</span><span class="service-name">Animated Digital Presentations</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80&auto=format&fit=crop" alt="Animated Presentation" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">31</span><span class="svc-name">Animated Digital Presentations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80&auto=format&fit=crop" alt="Digital Illustration" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">32</span><span class="service-name">Digital Illustrations</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80&auto=format&fit=crop" alt="Digital Illustration" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">32</span><span class="svc-name">Digital Illustrations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&q=80&auto=format&fit=crop" alt="Visual Storytelling" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">33</span><span class="service-name">Visual Storytelling</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=80&auto=format&fit=crop" alt="Visual Storytelling" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">33</span><span class="svc-name">Visual Storytelling</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=200&q=80&auto=format&fit=crop" alt="Interactive Art" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">34</span><span class="service-name">Interactive Art Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=600&q=80&auto=format&fit=crop" alt="Interactive Art" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">34</span><span class="svc-name">Interactive Art Experiences</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 6. Digital Products -->
-      <div class="category-block" id="products">
-        <div class="category-head">
-          <span class="cat-index">06</span>
-          <h2>Digital Products</h2>
+      <div class="service-category" id="products">
+        <div class="category-bar">
+          <span class="cat-num">06</span>
+          <h3>Digital Products</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=200&q=80&auto=format&fit=crop" alt="Birthday Template" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">35</span><span class="service-name">Ready-Made Birthday Templates</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80&auto=format&fit=crop" alt="Birthday Template" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">35</span><span class="svc-name">Ready-Made Birthday Templates</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=200&q=80&auto=format&fit=crop" alt="Wedding Template" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">36</span><span class="service-name">Wedding Invitation Templates</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80&auto=format&fit=crop" alt="Wedding Template" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">36</span><span class="svc-name">Wedding Invitation Templates</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=200&q=80&auto=format&fit=crop" alt="Greeting Template" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">37</span><span class="service-name">Greeting Website Templates</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80&auto=format&fit=crop" alt="Greeting Template" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">37</span><span class="svc-name">Greeting Website Templates</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&q=80&auto=format&fit=crop" alt="Interactive Template" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">38</span><span class="service-name">Interactive Website Templates</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80&auto=format&fit=crop" alt="Interactive Template" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">38</span><span class="svc-name">Interactive Website Templates</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Celebration Package" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">39</span><span class="service-name">Digital Celebration Packages</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80&auto=format&fit=crop" alt="Celebration Package" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">39</span><span class="svc-name">Digital Celebration Packages</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&q=80&auto=format&fit=crop" alt="Customizable Design" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">40</span><span class="service-name">Customizable Digital Designs</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80&auto=format&fit=crop" alt="Customizable Design" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">40</span><span class="svc-name">Customizable Digital Designs</span></div>
           </li>
         </ul>
       </div>
 
       <!-- 7. Business & Brand Experiences -->
-      <div class="category-block" id="business">
-        <div class="category-head">
-          <span class="cat-index">07</span>
-          <h2>Business &amp; Brand Experiences</h2>
+      <div class="service-category" id="business">
+        <div class="category-bar">
+          <span class="cat-num">07</span>
+          <h3>Business &amp; Brand Experiences</h3>
         </div>
-        <ul class="services-grid">
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=80&auto=format&fit=crop" alt="Brand Presentation" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">41</span><span class="service-name">Interactive Brand Presentations</span></div>
+        <ul class="service-grid">
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80&auto=format&fit=crop" alt="Brand Presentation" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">41</span><span class="svc-name">Interactive Brand Presentations</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80&auto=format&fit=crop" alt="Product Showcase" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">42</span><span class="service-name">Digital Product Showcases</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80&auto=format&fit=crop" alt="Product Showcase" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">42</span><span class="svc-name">Digital Product Showcases</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80&auto=format&fit=crop" alt="Campaign Landing" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">43</span><span class="service-name">Creative Campaign Landing Pages</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop" alt="Campaign Landing" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">43</span><span class="svc-name">Creative Campaign Landing Pages</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop" alt="Portfolio" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">44</span><span class="service-name">Interactive Portfolio Experiences</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop" alt="Portfolio" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">44</span><span class="svc-name">Interactive Portfolio Experiences</span></div>
           </li>
-          <li class="service-card">
-            <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=200&q=80&auto=format&fit=crop" alt="Brand Invitation" loading="lazy"></div>
-            <div class="service-content"><span class="service-num">45</span><span class="service-name">Digital Brand Invitation</span></div>
+          <li class="svc-card">
+            <div class="svc-img-wrap"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80&auto=format&fit=crop" alt="Brand Invitation" loading="lazy"></div>
+            <div class="svc-info"><span class="svc-num">45</span><span class="svc-name">Digital Brand Invitation</span></div>
           </li>
         </ul>
       </div>
 
-      <div class="closing-note">
+      <div class="services-closing">
         <strong>45+</strong> personalized experiences — all tailored to your story, brand or celebration.
       </div>
 
@@ -943,7 +944,7 @@
 
 <script>
 /* ============================================================
-   SHARED HEADER/FOOTER SCRIPT — SAME AS HOME
+   SHARED HEADER/FOOTER SCRIPT
    ============================================================ */
 (function() {
   "use strict";
