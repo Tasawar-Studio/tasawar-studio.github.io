@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>TΛSΛWΛR Studio</title>
-  <meta name="description" content="Explore 45+ personalized digital experiences by TΛSΛWΛR Studio — from celebrations and interactive stories to brand showcases.">
+  <meta name="description" content="Explore 53+ personalized digital experiences by TΛSΛWΛR Studio — from celebrations and interactive stories to brand showcases, logo making, video editing and creative design.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tasawar-studio.github.io/Digital-Experiences/">
 
@@ -25,7 +25,7 @@
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Digital Experiences · TΛSΛWΛR Studio">
-  <meta property="og:description" content="45+ personalized digital experiences — celebrations, interactive stories, brand showcases and more.">
+  <meta property="og:description" content="53+ personalized digital experiences — celebrations, interactive stories, brand showcases, logo design and creative editing.">
   <meta property="og:image" content="https://raw.githubusercontent.com/Tasawar-Studio/tasawar-studio.github.io/main/preview.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -237,7 +237,9 @@
       .mobile-toggle { display:grid; }
     }
 
-    /* STUDIO HERO */
+    /* ============================================================
+       ANIMATED STUDIO HERO
+       ============================================================ */
 
     .studio-hero {
       min-height:100vh;
@@ -248,64 +250,260 @@
       overflow:hidden;
       padding:140px 0 80px;
       text-align:center;
-      background:
-        radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.09),transparent 45%),
-        radial-gradient(ellipse at 15% 80%,rgba(255,255,255,.045),transparent 40%),
-        var(--bg-primary);
+      isolation:isolate;
+      background:var(--bg-primary);
     }
 
-    .studio-hero-content { max-width:900px; margin:auto; }
+    .hero-bg-layer {
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      opacity:0;
+      transform:scale(1.08);
+      transition:opacity 1.4s ease, transform 6s ease;
+      will-change:opacity, transform;
+    }
+
+    .hero-bg-layer.active {
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .hero-overlay {
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(0,0,0,.35), transparent 60%),
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.72) 0%,
+          rgba(0,0,0,.55) 40%,
+          rgba(0,0,0,.70) 75%,
+          rgba(0,0,0,.88) 100%
+        );
+      pointer-events:none;
+    }
+
+    [data-theme="light"] .hero-overlay {
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(0,0,0,.30), transparent 60%),
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.62) 0%,
+          rgba(0,0,0,.45) 40%,
+          rgba(0,0,0,.60) 75%,
+          rgba(0,0,0,.78) 100%
+        );
+    }
+
+    .studio-hero .container {
+      position:relative;
+      z-index:2;
+    }
+
+    .studio-hero-content { max-width:960px; margin:auto; }
 
     .studio-label {
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:7px 16px;
-      border:1px solid var(--glass-border);
+      padding:8px 18px;
+      border:1px solid rgba(255,255,255,.25);
       border-radius:50px;
-      background:var(--glass-bg);
-      color:var(--text-secondary);
+      background:rgba(0,0,0,.35);
+      color:#fff;
       font-family:var(--font-display);
       font-size:10px;
-      letter-spacing:2px;
-      margin-bottom:34px;
+      letter-spacing:2.5px;
+      margin-bottom:32px;
       backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
     .studio-label .pulse {
-      width:6px;
-      height:6px;
+      width:7px;
+      height:7px;
       border-radius:50%;
-      background:var(--text-primary);
+      background:#fff;
       animation:pulse 2s infinite;
+      box-shadow:0 0 10px rgba(255,255,255,.8);
     }
 
     @keyframes pulse {
       0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.35; transform:scale(.75); }
+      50% { opacity:.35; transform:scale(.7); }
     }
 
     .studio-hero h1 {
       font-family:var(--font-display);
-      font-size:clamp(52px,11vw,130px);
+      font-size:clamp(48px,10vw,120px);
       line-height:.98;
       font-weight:900;
       letter-spacing:-4px;
-      margin-bottom:24px;
+      margin-bottom:22px;
+      color:#fff;
+      text-shadow:0 6px 40px rgba(0,0,0,.5);
     }
 
     .studio-hero h1 .outline {
       color:transparent;
-      -webkit-text-stroke:1.5px var(--text-primary);
+      -webkit-text-stroke:1.5px #fff;
       display:block;
     }
 
-    .studio-tagline {
+    /* ============================================================
+       ROTATING TEXT — TRUE CROSSFADE, NEVER DISAPPEARS
+       The active word sits in normal flow and defines the width.
+       The incoming word is absolutely positioned on top of it.
+       Both words fade at the same time: one out, one in — no gap,
+       no vanishing moment. The change feels continuous.
+       ============================================================ */
+
+    .hero-rotator {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      min-height:52px;
+      margin-bottom:36px;
       font-family:var(--font-display);
-      font-size:clamp(14px,2vw,19px);
-      letter-spacing:4px;
-      color:var(--text-secondary);
+      font-size:clamp(15px,2.6vw,24px);
+      letter-spacing:3px;
       text-transform:uppercase;
+      color:#fff;
+      flex-wrap:wrap;
+      position:relative;
+    }
+
+    .hero-rotator .static-prefix {
+      opacity:.75;
+      font-weight:500;
+      white-space:nowrap;
+    }
+
+    .hero-rotator .rotating-word {
+      position:relative;
+      display:inline-block;
+      vertical-align:middle;
+      text-align:left;
+      min-width:1ch;
+    }
+
+    /* Every word is stacked absolutely. Only one is "active"
+       (in flow + visible). Incoming word crossfades on top. */
+    .hero-rotator .rotating-word span {
+      position:absolute;
+      left:0;
+      top:0;
+      white-space:nowrap;
+      font-weight:800;
+      color:#fff;
+      text-shadow:0 0 22px rgba(255,255,255,.35);
+      opacity:0;
+      transform:translateY(6px);
+      transition:opacity .7s cubic-bezier(.4,0,.2,1),
+                 transform .7s cubic-bezier(.4,0,.2,1);
+      pointer-events:none;
+      will-change:opacity, transform;
+    }
+
+    /* The active word is in normal flow so it defines the box size.
+       It stays fully visible. */
+    .hero-rotator .rotating-word span.active {
+      position:relative;
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Outgoing word fades out while the incoming word fades in.
+       Both transitions run at the same time = smooth crossfade. */
+    .hero-rotator .rotating-word span.leaving {
+      opacity:0;
+      transform:translateY(-6px);
+    }
+
+    /* Incoming word, layered on top, fades in from below.
+       It's absolute so it overlays the outgoing word
+       without ever leaving a blank gap. */
+    .hero-rotator .rotating-word span.entering {
+      position:absolute;
+      opacity:0;
+      transform:translateY(6px);
+    }
+
+    .hero-rotator .rotating-word span.entering.show {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .studio-tagline {
+      font-size:clamp(14px,1.8vw,17px);
+      letter-spacing:1.5px;
+      color:rgba(255,255,255,.82);
+      text-transform:uppercase;
+      max-width:620px;
+      margin:0 auto 48px;
+      font-weight:400;
+    }
+
+    .hero-dots {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:wrap;
+      max-width:520px;
+      margin:0 auto;
+    }
+
+    .hero-dots button {
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      border:0;
+      padding:0;
+      background:rgba(255,255,255,.25);
+      transition:background .3s, transform .3s, width .3s;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .hero-dots button.active {
+      background:#fff;
+      width:22px;
+      border-radius:6px;
+      transform:scale(1.05);
+    }
+
+    .hero-dots button:hover { background:rgba(255,255,255,.6); }
+
+    .hero-scroll-hint {
+      position:absolute;
+      bottom:28px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:3;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      color:rgba(255,255,255,.55);
+      font-size:10px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-family:var(--font-display);
+      animation:floatHint 2.6s ease-in-out infinite;
+    }
+
+    .hero-scroll-hint i { font-size:14px; }
+
+    @keyframes floatHint {
+      0%,100% { transform:translate(-50%, 0); opacity:.55; }
+      50% { transform:translate(-50%, 8px); opacity:.9; }
     }
 
     /* ============================================================
@@ -323,7 +521,6 @@
       isolation:isolate;
     }
 
-    /* Background image layer */
     .experience-section .bg-image {
       position:absolute;
       inset:0;
@@ -339,7 +536,6 @@
       transform:scale(1);
     }
 
-    /* Dark overlay for text readability */
     .experience-section .overlay {
       position:absolute;
       inset:0;
@@ -361,7 +557,6 @@
       );
     }
 
-    /* Content wrapper */
     .experience-content {
       position:relative;
       z-index:2;
@@ -371,7 +566,6 @@
       padding:0 24px;
     }
 
-    /* Category header row */
     .exp-header {
       display:flex;
       align-items:center;
@@ -429,7 +623,6 @@
       color:rgba(0,0,0,.55);
     }
 
-    /* Service list — glass cards */
     .exp-list {
       list-style:none;
       display:grid;
@@ -485,7 +678,6 @@
       color:rgba(0,0,0,.5);
     }
 
-    /* Final CTA strip */
     .exp-cta {
       min-height:60vh;
       display:flex;
@@ -682,11 +874,15 @@
       .site-footer { padding:50px 0 0; }
       .footer-top { grid-template-columns:1fr; gap:36px; padding-bottom:40px; }
       .footer-bottom { justify-content:center; text-align:center; }
-      .studio-hero { padding:120px 0 100px; }
+      .studio-hero { padding:120px 0 90px; }
       .studio-hero h1 { letter-spacing:-2px; }
       .logo { font-size:18px; }
       .logo-img { width:40px; height:40px; }
       .exp-list li { padding:14px 16px; font-size:13px; }
+      .hero-rotator { gap:8px; font-size:clamp(13px,4vw,18px); }
+      .hero-dots { max-width:340px; gap:6px; }
+      .hero-dots button { width:7px; height:7px; }
+      .hero-dots button.active { width:18px; }
     }
 
     @media(prefers-reduced-motion:reduce) {
@@ -696,6 +892,8 @@
         transition:none!important;
       }
       .experience-section .bg-image { transform:none; }
+      .hero-bg-layer { transition:none; }
+      .hero-rotator .rotating-word span { transition:none; }
     }
   </style>
 </head>
@@ -757,6 +955,10 @@
             <li><a href="/Digital-Experiences/">Anniversary Surprises</a></li>
             <li><a href="/Digital-Experiences/">Wedding Invitations</a></li>
             <li><a href="/Digital-Experiences/">Greeting Websites</a></li>
+            <li><a href="/Digital-Experiences/">Logo &amp; Branding</a></li>
+            <li><a href="/Digital-Experiences/">Image &amp; Video Editing</a></li>
+            <li><a href="/Digital-Experiences/">Drawing &amp; Writing</a></li>
+            <li><a href="/Digital-Experiences/">Designing</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -784,16 +986,40 @@
 <div id="site-header"></div>
 
 <main>
-  <!-- HERO -->
-  <section class="studio-hero">
+  <!-- ============================================================
+       ANIMATED STUDIO HERO
+       ============================================================ -->
+  <section class="studio-hero" id="studio-hero">
+
+    <div class="hero-bg-layer" id="heroBgLayer" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
     <div class="container">
       <div class="studio-hero-content">
         <div class="studio-label">
           <span class="pulse"></span> TΛSΛWΛR STUDIO
         </div>
         <h1>TΛSΛWΛR <span class="outline">Studio</span></h1>
-        <div class="studio-tagline">Create with Creativity</div>
+
+        <!-- Rotating text — true crossfade, never disappears -->
+        <div class="hero-rotator" aria-live="polite">
+          <span class="static-prefix">We create</span>
+          <span class="rotating-word" id="rotatingWord">
+            <span class="active">Logo Design</span>
+          </span>
+        </div>
+
+        <p class="studio-tagline">
+          Drawing · Designing · Editing · Writing · And Beyond
+        </p>
+
+        <div class="hero-dots" id="heroDots" aria-label="Hero image navigation"></div>
       </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 
@@ -955,11 +1181,35 @@
   </section>
 
   <!-- ============================================================
+       FULL-SCREEN CATEGORY 08 — Creative Services
+       ============================================================ -->
+  <section class="experience-section" id="creative-services">
+    <div class="bg-image" style="background-image:url('https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1600&q=80&auto=format&fit=crop');"></div>
+    <div class="overlay"></div>
+    <div class="experience-content">
+      <div class="exp-header">
+        <span class="exp-num">08</span>
+        <h2 class="exp-title">Creative Services<small>Logo · Image · Video · Writing · Design</small></h2>
+      </div>
+      <ul class="exp-list">
+        <li><span class="idx">46</span>Logo Making &amp; Brand Identity</li>
+        <li><span class="idx">47</span>Image Editing &amp; Retouching</li>
+        <li><span class="idx">48</span>Video Editing &amp; Post-Production</li>
+        <li><span class="idx">49</span>Drawing &amp; Digital Illustration</li>
+        <li><span class="idx">50</span>Content Writing &amp; Copywriting</li>
+        <li><span class="idx">51</span>Graphic Designing &amp; Layouts</li>
+        <li><span class="idx">52</span>UI/UX &amp; Web Design</li>
+        <li><span class="idx">53</span>Social Media Creative Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
        FINAL CTA
        ============================================================ -->
   <section class="exp-cta" id="contact">
     <div>
-      <h2>45+ Personalized Experiences</h2>
+      <h2>53+ Personalized Experiences</h2>
       <p>All tailored to your story, brand or celebration. Let's create something unforgettable together.</p>
       <a href="https://wa.me/923047467957" target="_blank" rel="noopener" class="cta-btn">
         Start a Project <i class="fas fa-arrow-right"></i>
@@ -1040,6 +1290,222 @@
     }
   }
 
+  /* ============================================================
+     HERO ANIMATION — TRUE CROSSFADE
+     The outgoing word and incoming word fade AT THE SAME TIME,
+     overlapping in the same spot. The text never disappears.
+     Because only one word is visible at any moment near the end
+     of the fade, it reads cleanly — no garble, no blank gap.
+     ============================================================ */
+  function initHeroAnimation() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var bgLayer = document.getElementById("heroBgLayer");
+    var rotatingWordEl = document.getElementById("rotatingWord");
+    var dotsContainer = document.getElementById("heroDots");
+
+    if (!bgLayer || !rotatingWordEl || !dotsContainer) return;
+
+    var heroSlides = [
+      { img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1920&q=80&auto=format&fit=crop", word: "Logo Design" },
+      { img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80&auto=format&fit=crop", word: "Graphic Designing" },
+      { img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80&auto=format&fit=crop", word: "Digital Drawing" },
+      { img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&q=80&auto=format&fit=crop", word: "Video Editing" },
+      { img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1920&q=80&auto=format&fit=crop", word: "Image Editing" },
+      { img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80&auto=format&fit=crop", word: "Creative Writing" },
+      { img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1920&q=80&auto=format&fit=crop", word: "Web Experiences" },
+      { img: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1920&q=80&auto=format&fit=crop", word: "Birthday Websites" },
+      { img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1920&q=80&auto=format&fit=crop", word: "Anniversary Surprises" },
+      { img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80&auto=format&fit=crop", word: "Wedding Invitations" },
+      { img: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1920&q=80&auto=format&fit=crop", word: "Engagement Announcements" },
+      { img: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1920&q=80&auto=format&fit=crop", word: "Graduation Celebrations" },
+      { img: "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=1920&q=80&auto=format&fit=crop", word: "Valentine's Experiences" },
+      { img: "https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=80&auto=format&fit=crop", word: "Baby Shower Invitations" },
+      { img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1920&q=80&auto=format&fit=crop", word: "Digital Love Stories" },
+      { img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1920&q=80&auto=format&fit=crop", word: "Friendship Websites" },
+      { img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1920&q=80&auto=format&fit=crop", word: "Memory Websites" },
+      { img: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1920&q=80&auto=format&fit=crop", word: "Personal Timelines" },
+      { img: "https://images.unsplash.com/photo-1476234251651-f353703a034d?w=1920&q=80&auto=format&fit=crop", word: "Digital Scrapbooks" },
+      { img: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&q=80&auto=format&fit=crop", word: "Thank You Pages" },
+      { img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80&auto=format&fit=crop", word: "Event Invitations" },
+      { img: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=80&auto=format&fit=crop", word: "Event Landing Pages" },
+      { img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80&auto=format&fit=crop", word: "RSVP Websites" },
+      { img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920&q=80&auto=format&fit=crop", word: "Countdown Pages" },
+      { img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1920&q=80&auto=format&fit=crop", word: "Event Programs" },
+      { img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80&auto=format&fit=crop", word: "Conference Experiences" },
+      { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&q=80&auto=format&fit=crop", word: "Interactive Storytelling" },
+      { img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1920&q=80&auto=format&fit=crop", word: "Mini Web Games" },
+      { img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80&auto=format&fit=crop", word: "Interactive Quizzes" },
+      { img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80&auto=format&fit=crop", word: "Personality Tests" },
+      { img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&q=80&auto=format&fit=crop", word: "Interactive Timelines" },
+      { img: "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=1920&q=80&auto=format&fit=crop", word: "Puzzle Experiences" },
+      { img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80&auto=format&fit=crop", word: "Creative Web Experiments" },
+      { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&q=80&auto=format&fit=crop", word: "Motion Graphics" },
+      { img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1920&q=80&auto=format&fit=crop", word: "3D Web Experiences" },
+      { img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1920&q=80&auto=format&fit=crop", word: "Animated Presentations" },
+      { img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80&auto=format&fit=crop", word: "Digital Illustrations" },
+      { img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80&auto=format&fit=crop", word: "Visual Storytelling" },
+      { img: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1920&q=80&auto=format&fit=crop", word: "Interactive Art" },
+      { img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80&auto=format&fit=crop", word: "Birthday Templates" },
+      { img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80&auto=format&fit=crop", word: "Wedding Templates" },
+      { img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1920&q=80&auto=format&fit=crop", word: "Greeting Templates" },
+      { img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&q=80&auto=format&fit=crop", word: "Interactive Templates" },
+      { img: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1920&q=80&auto=format&fit=crop", word: "Celebration Packages" },
+      { img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1920&q=80&auto=format&fit=crop", word: "Customizable Designs" },
+      { img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&q=80&auto=format&fit=crop", word: "Brand Presentations" },
+      { img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80&auto=format&fit=crop", word: "Product Showcases" },
+      { img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80&auto=format&fit=crop", word: "Campaign Landing Pages" },
+      { img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80&auto=format&fit=crop", word: "Portfolio Experiences" },
+      { img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80&auto=format&fit=crop", word: "Brand Invitations" },
+      { img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1920&q=80&auto=format&fit=crop", word: "Logo Making" },
+      { img: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1920&q=80&auto=format&fit=crop", word: "Image Retouching" },
+      { img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&q=80&auto=format&fit=crop", word: "Video Post-Production" },
+      { img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80&auto=format&fit=crop", word: "Digital Illustration" },
+      { img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1920&q=80&auto=format&fit=crop", word: "Copywriting" },
+      { img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1920&q=80&auto=format&fit=crop", word: "Graphic Layouts" },
+      { img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1920&q=80&auto=format&fit=crop", word: "UI/UX Design" },
+      { img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&q=80&auto=format&fit=crop", word: "Social Media Design" }
+    ];
+
+    // Preload all images
+    heroSlides.forEach(function(slide) {
+      var img = new Image();
+      img.src = slide.img;
+    });
+
+    rotatingWordEl.innerHTML = "";
+
+    var wordSpans = heroSlides.map(function(slide, i) {
+      var span = document.createElement("span");
+      span.textContent = slide.word;
+      if (i === 0) span.classList.add("active");
+      rotatingWordEl.appendChild(span);
+      return span;
+    });
+
+    var dots = heroSlides.map(function(_, i) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Show: " + heroSlides[i].word);
+      if (i === 0) btn.classList.add("active");
+      btn.addEventListener("click", function() { goTo(i, true); });
+      dotsContainer.appendChild(btn);
+      return btn;
+    });
+
+    var current = 0;
+    var autoTimer = null;
+    var INTERVAL = 4200;   // time each word stays fully visible
+    var XFADE_MS = 700;    // crossfade duration
+    var userInteracted = false;
+    var busy = false;
+
+    function updateDots(index) {
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    function swapBackground(index) {
+      bgLayer.style.backgroundImage = "url('" + heroSlides[index].img + "')";
+      bgLayer.classList.remove("active");
+      void bgLayer.offsetWidth;
+      bgLayer.classList.add("active");
+    }
+
+    // Show a slide instantly (used for first slide)
+    function showInstant(index) {
+      swapBackground(index);
+      wordSpans.forEach(function(span, i) {
+        span.className = "";
+        if (i === index) span.classList.add("active");
+      });
+      updateDots(index);
+    }
+
+    /* TRUE CROSSFADE:
+       - Outgoing word stays visible (class "active") but gets "leaving"
+         which fades it out.
+       - Incoming word is added on top as "entering show" which fades it in.
+       - Both transitions run SIMULTANEOUSLY over XFADE_MS.
+       - At the end, outgoing is fully hidden, incoming becomes "active".
+       Result: text never disappears; one word smoothly replaces another. */
+    function goTo(index, manual) {
+      if (index === current || busy) return;
+      busy = true;
+
+      var outgoing = wordSpans[current];
+      var incoming = wordSpans[index];
+
+      // Incoming word is layered on top and starts hidden
+      incoming.className = "entering";
+
+      // Force a reflow so the browser registers the starting state
+      void incoming.offsetWidth;
+
+      // Now start the crossfade:
+      // outgoing fades OUT, incoming fades IN — at the same time.
+      outgoing.classList.add("leaving");
+      incoming.classList.add("show");
+
+      // Swap the background at the midpoint of the crossfade
+      setTimeout(function() {
+        swapBackground(index);
+      }, XFADE_MS * 0.4);
+
+      // When the crossfade finishes, clean up classes
+      setTimeout(function() {
+        outgoing.className = "";
+        incoming.className = "active";
+        updateDots(index);
+        current = index;
+        busy = false;
+      }, XFADE_MS);
+
+      if (manual) {
+        userInteracted = true;
+        restartAuto();
+      }
+    }
+
+    function next() {
+      var n = (current + 1) % heroSlides.length;
+      goTo(n, false);
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(next, INTERVAL);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    function restartAuto() {
+      stopAuto();
+      if (!userInteracted) {
+        startAuto();
+      } else {
+        setTimeout(function() {
+          userInteracted = false;
+          startAuto();
+        }, 9000);
+      }
+    }
+
+    document.addEventListener("visibilitychange", function() {
+      if (document.hidden) stopAuto();
+      else if (!userInteracted) startAuto();
+    });
+
+    showInstant(0);
+    startAuto();
+  }
+
   var canvas = document.getElementById("particles-canvas");
   var ctx = canvas ? canvas.getContext("2d") : null;
   var particles = [];
@@ -1102,6 +1568,7 @@
       loadComponent("footer-template", "#site-footer", "/index.html")
     ]);
     initHeaderEvents();
+    initHeroAnimation();
     if (canvas) {
       resize();
       window.addEventListener("resize", resize);
